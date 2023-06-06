@@ -222,6 +222,7 @@ function actualizeCoolStuff(selectedProducts){
 }
 }
 
+/*
 function isValable(arrayUserInp,userInp){
   let dejaSelected = false
   let containedInData = false
@@ -248,7 +249,7 @@ function isValable(arrayUserInp,userInp){
   }
   return isValable
 }
-
+*/
 
 function addProduct(arrayUserInp, userInp){
   if(isValable(arrayUserInp, userInp)=== true){

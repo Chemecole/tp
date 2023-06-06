@@ -171,7 +171,7 @@ class Product {
                       break;
                     }
             
-                    if (isHidden) 
+                    if (hiddenElems.includes(experiment) == false && isHidden== true) 
                     {
                       hiddenElems.push(experiment);
                     }

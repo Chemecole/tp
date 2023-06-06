@@ -145,6 +145,7 @@ class Product {
             
                   for (var j = 0; j < lineOfCheckbox.length; j++)
                   {
+                    //filter here is a singular name, like chimie, 6ème,... i think
                     var filter = lineOfCheckbox[j];
                     switch(lineTitle)
                     {
@@ -189,7 +190,7 @@ class Product {
 
             //var rElems = document.querySelectorAll(".result div");
             
-
+            hiddenElems = []
             hideOrShow(filters.subjectF, "subject");
             hideOrShow(filters.levelF, "level");
             hideOrShow(filters.sourceF, "source");

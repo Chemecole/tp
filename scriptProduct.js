@@ -8,9 +8,9 @@ let btnAddProduct = document.getElementById('btnAddProduct')
 
 dropdown.selectedIndex = 0;
 
-const url ="http://localhost:3000/products"
-const urlTP ="http://localhost:3000/tp"
-const urlCool = "http://localhost:3000/cool"
+const url ="https://chemecole.github.io/tp/chemistry.json/products"
+const urlTP ="https://chemecole.github.io/tp/chemistry.json/tp"
+//const urlCool = "http://localhost:3000/cool"
 
 
 

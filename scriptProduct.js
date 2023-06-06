@@ -77,10 +77,7 @@ fetch(url)
       const productQuantity = product.quantity;
       prod = new Product(productId, productName, productStrpic, productLocation, productQuantity)
       dataProducts.push(prod)
-      console.log("Product: " + productName);
-      console.log("Image: " + productStrpic);
-      console.log("Location: " + productLocation);
-      console.log("Quantity: " + productQuantity);
+    
     });
 
     // Accédez à la catégorie "tp"
@@ -99,9 +96,7 @@ fetch(url)
 
       experiment = new Experiment(tpId,tpName,tpChemP,tpInstructions,tpSubject,tpLevel,tpSource,tpTheme)
       dataTP.push(experiment)
-      console.log("TP Name: " + tpName);
-      console.log("Chemical Properties: " + tpChemP);
-      console.log("Instructions: " + tpInstructions);
+  
     });
 
     // Accédez à la catégorie "cool"
@@ -111,9 +106,8 @@ fetch(url)
       const coolId = coolItem.id;
       const coolName = coolItem.name;
       const coolImageOrVideo = coolItem.imageOrVideo;
-      console.log("Cool Item ID: " + coolId);
-      console.log("Cool Item Name: " + coolName);
-      console.log("Image/Video: " + coolImageOrVideo);
+      
+      
     });
   })
   .catch(error => {
@@ -128,6 +122,7 @@ fetch(url)
     option.text = dataProducts[i].name;
     dropdown.appendChild(option);
   }
+ }
 
   makeDropdown();
   //once the first product has been chosen, it would be more efficient to make it can only

@@ -121,7 +121,13 @@ fetch(url)
     console.error(error);
   });
 
-
+ function makeDropdown(){
+  let option;     
+  for (let i = 0; i < dataProducts.length; i++) {
+    option = document.createElement('option');
+    option.text = dataProducts[i].name;
+    dropdown.appendChild(option);
+  }
 
   //once the first product has been chosen, it would be more efficient to make it can only
   //get reduced (because the more you add ingredients, the less choice of TPs)

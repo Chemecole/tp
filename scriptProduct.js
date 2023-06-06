@@ -119,7 +119,9 @@ fetch(url)
   let option;     
   for (let i = 0; i < dataProducts.length; i++) {
     option = document.createElement('option');
+    
     option.text = dataProducts[i].name;
+    console.log(option)
     dropdown.appendChild(option);
   }
  }
@@ -220,6 +222,32 @@ function actualizeCoolStuff(selectedProducts){
 }
 }
 
+function isValable(arrayUserInp,userInp){
+  let dejaSelected = false
+  let containedInData = false
+  for(i=0; i < arrayUserInp.length; i++){
+    if(arrayUserInp[i]===userInp){
+      alert('ce produit chimique est déjà selectionné')
+      dejaSelected = true
+    }
+  }
+  for(i=0; i< data.length;i++){
+      if(data[i].name === userInp){
+          containedInData = true
+      }
+
+  }
+
+  if(containedInData === false){
+
+    alert("désolé ce produit n'est pas présent dans la liste de produits disponibles. Peut-être c'est présent sous un autre nom !")
+  }
+  let isValable = false
+  if(dejaSelected === false && containedInData === true){
+      isValable = true
+  }
+  return isValable
+}
 
 
 function addProduct(arrayUserInp, userInp){
@@ -269,10 +297,8 @@ btnAddProduct.addEventListener('click',e => {
 
 
 function btnClickedRemove(get){
-  
   var buttonClicked = event.target
   var str = buttonClicked.parentElement.innerHTML
-  
   var mySubString = str.substring(
     str.indexOf("<h5>") + 4, 
     str.lastIndexOf("</h5>") 

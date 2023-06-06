@@ -27,8 +27,8 @@ class Product {
 }
 
 
-    let dataTP = []
-    let dataProducts = []
+    let dataTP = [];
+    let dataProducts = [];
 
     window.onload = async function() {
       
@@ -92,22 +92,28 @@ class Product {
       
 
         function change() {
+          //on récupere à chaque click l'ensemble des coches qui sont clickés
+          //Cbs c'est l'ensemble des trusc à cocher dans une ligne (une classe)
             var subjectCbs = document.querySelectorAll(".subject input[type='checkbox']");
             var levelCbs = document.querySelectorAll(".level input[type='checkbox']");
             var sourceCbs = document.querySelectorAll(".source input[type='checkbox']");
             var themeCbs = document.querySelectorAll(".theme input[type='checkbox']");
            
 
-            
+            //ici ça nous permet de récupérer pour chaque classe séparée ce qui est coché
             var filters = {
               subjectF: getClassOfCheckedCheckboxes(subjectCbs),
               levelF: getClassOfCheckedCheckboxes(levelCbs),
               sourceF: getClassOfCheckedCheckboxes(sourceCbs),
               themeF: getClassOfCheckedCheckboxes(themeCbs)
             };
+            
             filterResults(filters);
+
           }
           
+          //cette fonction vérifie à quelle classe appartient la checkbox et que il y en a qui sont cochées et elle retourne
+          //une listes du nom des niveaux cochés (par exemple, [Physique, Chimie])
           function getClassOfCheckedCheckboxes(checkboxes) {
             var classes = [];
           
@@ -124,10 +130,48 @@ class Product {
             return classes;
           }
           
-          function filterResults(filters) {
+          var hiddenElems = [];
+          //donc ici lineOfCheckbox, ca fait reference par exemple ) Phtysique, Chimie, SVY
+          //lineTitle fait référence à Matière, Niveau, Source (-un des 4...)
+          function hideOrShow(lineOfCheckbox, lineTitle)
+          {
+             
+              for (var i = 0; i < dataTP.length; i++) 
+              {
+                var experiment = dataTP[i];
             
+              if (lineOfCheckbox.length > 0) {
+                var isHidden = true;
+          
+                for (var j = 0; j < lineOfCheckbox.length; j++) {
+                  var filter = lineOfCheckbox[j];
+                  if (experiment.lineTitle.includes(filter)) {
+                    isHidden = false;
+                    break;
+                  }
+                
+                }
+          
+                if (isHidden) {
+                  hiddenElems.push(experiment);
+                }
+              }
+            }
+          }
+
+          function filterResults(filters) {
+            //au début, tous les éléments sont cachés.
+            //
+
             //var rElems = document.querySelectorAll(".result div");
-            var hiddenElems = [];
+            
+
+            hideOrShow(filters.subjectF, subject);
+            hideOrShow(filters.levelF, level);
+            hideOrShow(filters.sourceF, source);
+            hideOrShow(filters.themeF, theme);
+
+            /*
             for (var i = 0; i < dataTP.length; i++) {
               var experiment = dataTP[i];
               ///console.log("/n /n this experiment is"+tp[i].name)
@@ -202,7 +246,7 @@ class Product {
               }
             }
             }
-            
+            */
             
             for (var i = 0; i < dataTP.length; i++) {
             if(filters.subjectF =='' && filters.levelF == '' && filters.sourceF == '' && filters.themeF ==''){

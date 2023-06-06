@@ -1,5 +1,4 @@
-const url ="https://chemecole.github.io/tp/chemistry.json/products"
-const urlTP ="https://chemecole.github.io/tp/chemistry.json/tp"
+const url ="https://chemecole.github.io/tp/chemistry.json"
 
 
 class Experiment{
@@ -27,75 +26,70 @@ class Product {
 
 }
 
-function recoverDataTP(){
 
     let dataTP = []
-    fetch(urlTP)  
-    .then(  
-    function(response) {  
-        if (response.status !== 200) {  
-        console.warn('Looks like there was a problem. Status Code: ' + 
-            response.status);  
-        return;  
-        }
-        response.json().then(function(data) {  
-        
-        for(i=0; i<data.length; i++){
-       
-            let exp = new Experiment(data[i].id, data[i].name,data[i].chemP,data[i].instructions,data[i].subject,data[i].level,data[i].source,data[i].theme);
-            dataTP.push(exp);
-        }
-    });  
-    }
-    )  
-    .catch(function(err) {  
-    console.error('Fetch Error -', err);  
-    });
-
-    return dataTP;
-
-    }
-    
-    function recoverDataProducts (){
-
-      let dataProducts = []
-      fetch(url)  
-    .then(  
-      function(response) {  
-        if (response.status !== 200) {  
-          console.warn('Looks like there was a problem. Status Code: ' + 
-            response.status);  
-          return;  
-        }
-        response.json().then(function(data) {  
-          
-          for(i=0; i<data.length; i++){
-            let Prod = new Product(data[i].id, data[i].name,data[i].strpic, data[i].location, data[i].quantity);
-            dataProducts.push(Prod);
-          }
-   });  
-      }
-    )  
-    .catch(function(err) {  
-      console.error('Fetch Error -', err);  
-    });
-  
-    return dataProducts;
-    }
-  
-  
-   
-
-    let tp
-    let data
+    let dataProducts = []
 
     window.onload = async function() {
       
-        tp = recoverDataTP()
-        data = recoverDataProducts()
+        //tp = recoverDataTP()
+        //data = recoverDataProducts()
         await new Promise(resolve => setTimeout(resolve, 3000));
         
         };
+
+  fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          // Accédez à la catégorie "products"
+          const products = data.products;
+          console.log("Category: products");
+          products.forEach(product => {
+            const productId = product.id;
+            const productName = product.name;
+            const productStrpic = product.strpic;
+            const productLocation = product.location;
+            const productQuantity = product.quantity;
+            prod = new Product(productId, productName, productStrpic, productLocation, productQuantity)
+            dataProducts.push(prod)
+          
+          });
+      
+          // Accédez à la catégorie "tp"
+          
+          const tp = data.tp;
+          console.log("Category: tp");
+          tp.forEach(tpItem => {
+            const tpId = tpItem.id;
+            const tpName = tpItem.name;
+            const tpChemP = tpItem.chemP;
+            const tpInstructions = tpItem.instructions;
+            const tpSubject = tpItem.subject;
+            const tpLevel = tpItem.level;
+            const tpSource = tpItem.source;
+            const tpTheme = tpItem.theme;
+      
+            experiment = new Experiment(tpId,tpName,tpChemP,tpInstructions,tpSubject,tpLevel,tpSource,tpTheme)
+            dataTP.push(experiment)
+        
+          });
+      
+          // Accédez à la catégorie "cool"
+          const cool = data.cool;
+          console.log("Category: cool");
+          cool.forEach(coolItem => {
+            const coolId = coolItem.id;
+            const coolName = coolItem.name;
+            const coolImageOrVideo = coolItem.imageOrVideo;
+            
+            
+          });
+        })
+        .catch(error => {
+          // Gérez les erreurs ici
+          console.error(error);
+        });
+      
 
         function change() {
             var subjectCbs = document.querySelectorAll(".subject input[type='checkbox']");
@@ -134,8 +128,8 @@ function recoverDataTP(){
             
             //var rElems = document.querySelectorAll(".result div");
             var hiddenElems = [];
-            for (var i = 0; i < tp.length; i++) {
-              var experiment = tp[i];
+            for (var i = 0; i < dataTP.length; i++) {
+              var experiment = dataTP[i];
               ///console.log("/n /n this experiment is"+tp[i].name)
               
               if (filters.subjectF.length > 0) {
@@ -210,20 +204,20 @@ function recoverDataTP(){
             }
             
             
-            for (var i = 0; i < tp.length; i++) {
+            for (var i = 0; i < dataTP.length; i++) {
             if(filters.subjectF =='' && filters.levelF == '' && filters.sourceF == '' && filters.themeF ==''){
               document.getElementById("result").innerHTML=" "
             }
             else{
 
-              if(document.getElementById(tp[i].id) === null){
+              if(document.getElementById(dataTP[i].id) === null){
               
-                let tpHTML = transformInHTML(tp[i])
+                let tpHTML = transformInHTML(dataTP[i])
                 document.getElementById("result").appendChild(tpHTML)
                             
                 }
                 else{
-                  tpToShow =  document.getElementById(tp[i].id)
+                  tpToShow =  document.getElementById(dataTP[i].id)
                   tpToShow.style.display = "inline-block";
                   tpToShow.parentElement.style.display="inline-block";
                 }
@@ -261,9 +255,9 @@ function recoverDataTP(){
             var tooltip= document.createElement('div')
             tooltip.id="tooltip-text"
             for(i=0; i<oneTPchemP.length;i++){
-              for(i2=0;i2<data.length;i2++){
-                if(oneTPchemP[i] == data[i2].name){
-                  tooltip.innerHTML += data[i2].name +": " +data[i2].location +"</br>"
+              for(i2=0;i2<dataProducts.length;i2++){
+                if(oneTPchemP[i] == dataProducts[i2].name){
+                  tooltip.innerHTML += dataProducts[i2].name +": " +dataProducts[i2].location +"</br>"
                   
                 }
               }

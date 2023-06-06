@@ -135,29 +135,53 @@ class Product {
           //lineTitle fait référence à Matière, Niveau, Source (-un des 4...)
           function hideOrShow(lineOfCheckbox, lineTitle)
           {
-             
               for (var i = 0; i < dataTP.length; i++) 
               {
                 var experiment = dataTP[i];
             
-              if (lineOfCheckbox.length > 0) {
-                var isHidden = true;
-          
-                for (var j = 0; j < lineOfCheckbox.length; j++) {
-                  var filter = lineOfCheckbox[j];
-                  if (experiment.lineTitle.includes(filter)) {
-                    isHidden = false;
-                    break;
+                if (lineOfCheckbox.length > 0) 
+                {
+                  var isHidden = true;
+            
+                  for (var j = 0; j < lineOfCheckbox.length; j++)
+                  {
+                    var filter = lineOfCheckbox[j];
+                    switch(lineTitle)
+                    {
+                      case "subject":
+                        if (experiment.subject.includes(filter)) {
+                          isHidden = false;                      
+                        }
+                      break;
+                      case "level":
+                        if (experiment.level.includes(filter)) {
+                          isHidden = false;  
+                        }
+                      break;
+                      case "source":
+                        if (experiment.source.includes(filter)) {
+                          isHidden = false;
+                        }
+                      break;
+                      case "theme":
+                        if (experiment.theme.includes(filter)) {
+                          isHidden = false;
+                        }
+                      break;
+                    }
+            
+                    if (isHidden) 
+                    {
+                      hiddenElems.push(experiment);
+                    }
                   }
-                
-                }
-          
-                if (isHidden) {
-                  hiddenElems.push(experiment);
-                }
               }
             }
           }
+              
+          
+        
+          
 
           function filterResults(filters) {
             //au début, tous les éléments sont cachés.
@@ -166,10 +190,10 @@ class Product {
             //var rElems = document.querySelectorAll(".result div");
             
 
-            hideOrShow(filters.subjectF, subject);
-            hideOrShow(filters.levelF, level);
-            hideOrShow(filters.sourceF, source);
-            hideOrShow(filters.themeF, theme);
+            hideOrShow(filters.subjectF, "subject");
+            hideOrShow(filters.levelF, "level");
+            hideOrShow(filters.sourceF, "source");
+            hideOrShow(filters.themeF, "theme");
 
             /*
             for (var i = 0; i < dataTP.length; i++) {

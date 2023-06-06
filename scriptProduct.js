@@ -9,10 +9,6 @@ let btnAddProduct = document.getElementById('btnAddProduct')
 dropdown.selectedIndex = 0;
 
 const url ="https://chemecole.github.io/tp/chemistry.json"
-const urlTP ="https://chemecole.github.io/tp/chemistry.json"
-const urlCool = "https://chemecole.github.io/tp/chemistry.json"
-
-
 
 class Product {
   constructor(id, name, strpic, location, quantity)
@@ -27,13 +23,17 @@ class Product {
 }
 
 class Experiment{
-  constructor(id, name,chemP){
+  constructor(id, name, chemP, instructions, subject, level, source, theme){
     this.id =id;
     this.name = name;
     this.chemP = chemP;
+    this.instructions = instructions;
+    this.subject = subject;
+    this.level = level;
+    this.source = source;
+    this.theme = theme;
   }
 }
-
 class CoolStuff{
   constructor(id, name, imageOrVideo, chemP, subject, level, source, theme ){
     this.id =id;
@@ -59,151 +59,67 @@ data = recoverDataProducts()
 dataCool = recoverDataCoolStuff()
 await new Promise(resolve => setTimeout(resolve, 3000));
 };
+let dataProducts = []
+let dataTP = []
 
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    // Accédez à la catégorie "products"
+    const products = data.products;
+    console.log("Category: products");
+    products.forEach(product => {
+      const productId = product.id;
+      const productName = product.name;
+      const productStrpic = product.strpic;
+      const productLocation = product.location;
+      const productQuantity = product.quantity;
+      prod = new Product(productId, productName, productStrpic, productLocation, productQuantity)
+      dataProducts.append(prod)
+      console.log("Product: " + productName);
+      console.log("Image: " + productStrpic);
+      console.log("Location: " + productLocation);
+      console.log("Quantity: " + productQuantity);
+    });
 
-//this is to create the dropdown list:
-fetch(url)  
-  .then(  
-    function(response) {  
-      if (response.status !== 200) {  
-        console.warn('Looks like there was a problem. Status Code: ' + 
-          response.status);  
-        return;  
-      }
-      response.json().then(function(data) {  
-        let option;     
-      for (let i = 0; i < data.length; i++) {
-        
-        option = document.createElement('option');
-        option.text = data[i].name;
-        dropdown.appendChild(option);
-          
-      }    
-      });  
-    }
-  
-  )  
-  .catch(function(err) {  
-    console.error('Fetch Error -', err);  
+    // Accédez à la catégorie "tp"
+    
+    const tp = data.tp;
+    console.log("Category: tp");
+    tp.forEach(tpItem => {
+      const tpId = tpItem.id;
+      const tpName = tpItem.name;
+      const tpChemP = tpItem.chemP;
+      const tpInstructions = tpItem.instructions;
+      const tpSubject = tpItem.subject;
+      const tpLevel = tpItem.level;
+      const tpSource = tpItem.source;
+      const tpTheme = tpItem.theme;
+
+      experiment = new Experiment(tpId,tpName,tpChemP,tpInstructions,tpSubject,tpLevel,tpSource,tpTheme)
+      dataTP.append(experiment)
+      console.log("TP Name: " + tpName);
+      console.log("Chemical Properties: " + tpChemP);
+      console.log("Instructions: " + tpInstructions);
+    });
+
+    // Accédez à la catégorie "cool"
+    const cool = data.cool;
+    console.log("Category: cool");
+    cool.forEach(coolItem => {
+      const coolId = coolItem.id;
+      const coolName = coolItem.name;
+      const coolImageOrVideo = coolItem.imageOrVideo;
+      console.log("Cool Item ID: " + coolId);
+      console.log("Cool Item Name: " + coolName);
+      console.log("Image/Video: " + coolImageOrVideo);
+    });
+  })
+  .catch(error => {
+    // Gérez les erreurs ici
+    console.error(error);
   });
 
-  function isValable(arrayUserInp,userInp){
-    let dejaSelected = false
-    let containedInData = false
-    for(i=0; i < arrayUserInp.length; i++){
-      if(arrayUserInp[i]===userInp){
-        alert('ce produit chimique est déjà selectionné')
-        dejaSelected = true
-      }
-    }
-    for(i=0; i< data.length;i++){
-        if(data[i].name === userInp){
-            containedInData = true
-        }
-        
-    }
-
-    if(containedInData === false){
-
-      alert("désolé ce produit n'est pas présent dans la liste de produits disponibles. Peut-être c'est présent sous un autre nom !")
-    }
-    let isValable = false
-    if(dejaSelected === false && containedInData === true){
-        isValable = true
-    }
-    return isValable
-  }
-
-
-  //this function allows to not have to use everywhere this damn fetch function
-  function recoverDataProducts (){
-
-    let dataProducts = []
-    fetch(url)  
-  .then(  
-    function(response) {  
-      if (response.status !== 200) {  
-        console.warn('Looks like there was a problem. Status Code: ' + 
-          response.status);  
-        return;  
-      }
-      response.json().then(function(data) {  
-        
-        for(i=0; i<data.length; i++){
-          let Prod = new Product(data[i].id, data[i].name,data[i].strpic, data[i].location, data[i].quantity);
-          dataProducts.push(Prod);
-        }
- });  
-    }
-  )  
-  .catch(function(err) {  
-    console.error('Fetch Error -', err);  
-  });
-
-  return dataProducts;
-  }
-
-
-  function recoverDataTP(){
-
-    let dataTP = []
-    fetch(urlTP)  
-  .then(  
-    function(response) {  
-      if (response.status !== 200) {  
-        console.warn('Looks like there was a problem. Status Code: ' + 
-          response.status);  
-        return;  
-      }
-      response.json().then(function(data) {  
-        
-        for(i=0; i<data.length; i++){
-          let exp = new Experiment(data[i].id, data[i].name,data[i].chemP);
-          dataTP.push(exp);
-        }
- });  
-    }
-  )  
-  .catch(function(err) {  
-    console.error('Fetch Error -', err);  
-  });
-
-  return dataTP;
-
-  }
-
-  function recoverDataCoolStuff (){
-
-    let dataCool = []
-    fetch(urlCool)  
-  .then(  
-    function(response) {  
-      if (response.status !== 200) {  
-        console.warn('Looks like there was a problem. Status Code: ' + 
-          response.status);  
-        return;  
-      }
-      response.json().then(function(data) {  
-        
-        for(i=0; i<data.length; i++){
-          let fun = new CoolStuff(data[i].id, data[i].name,data[i].imageOrVideo, data[i].chemP,data[i].subject,data[i].level, data[i].source, data[i].theme);
-          dataCool.push(fun);
-        }
- });  
-    }
-  )  
-  .catch(function(err) {  
-    console.error('Fetch Error -', err);  
-  });
-
-  return dataCool;
-  }
-
-
-
-  
-
- 
 
 
   //once the first product has been chosen, it would be more efficient to make it can only

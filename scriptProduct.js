@@ -48,7 +48,7 @@ class CoolStuff{
 
 }
 
-let tp
+
 let dataCool
 let dataProducts = []
 let dataTP = []
@@ -140,7 +140,7 @@ fetch(url)
     // the fetch function?
     //Look up : fetch 
     if(selectedProducts.length>0){
-    for(countTP =0; countTP < tp.length; countTP++){
+    for(countTP =0; countTP < dataTP.length; countTP++){
       //so tp[countTP] is one of the experiment of the tp database
 
       let allProductsAreIn = true // for each TP we check that
@@ -152,8 +152,8 @@ fetch(url)
         let iInExperiment = 0
 
         //so tp[countTP].chemP[iInExperiment] is one of the ingredient required for this specific tp
-        while(productIsIn === false && iInExperiment < tp[countTP].chemP.length){
-          if(tp[countTP].chemP[iInExperiment] === selectedProducts[countProducts]){
+        while(productIsIn === false && iInExperiment < dataTP[countTP].chemP.length){
+          if(dataTP[countTP].chemP[iInExperiment] === selectedProducts[countProducts]){
             productIsIn = true
           }
   
@@ -169,7 +169,7 @@ fetch(url)
 
       //here we do the if allProductsAreIn is true stuff
       if(allProductsAreIn){
-        availableTP.innerHTML += '<h3>' + tp[countTP].name +'</h3> <p> ingredients : ' + tp[countTP].chemP + '</p>'
+        availableTP.innerHTML += '<h3>' + dataTP[countTP].name +'</h3> <p> ingredients : ' + dataTP[countTP].chemP + '</p>'
       }
     }
   }

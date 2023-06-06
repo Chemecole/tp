@@ -64,9 +64,9 @@ await new Promise(resolve => setTimeout(resolve, 3000));
 
 fetch(url)
   .then(response => response.json())
-  .then(dataProducts => {
+  .then(data => {
     // Accédez à la catégorie "products"
-    const products = dataProducts.products;
+    const products = data.products;
     console.log("Category: products");
     products.forEach(product => {
       const productId = product.id;

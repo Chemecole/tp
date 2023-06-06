@@ -10,7 +10,7 @@ dropdown.selectedIndex = 0;
 
 const url ="https://chemecole.github.io/tp/chemistry.json/products"
 const urlTP ="https://chemecole.github.io/tp/chemistry.json/tp"
-//const urlCool = "http://localhost:3000/cool"
+const urlCool = "https://chemecole.github.io/tp/chemistry.json/cool"
 
 
 

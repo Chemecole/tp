@@ -81,7 +81,7 @@ fetch(url)
 
     // Accédez à la catégorie "tp"
     
-    const tp = dataProducts.tp;
+    const tp = data.tp;
     console.log("Category: tp");
     tp.forEach(tpItem => {
       const tpId = tpItem.id;
@@ -99,7 +99,7 @@ fetch(url)
     });
 
     // Accédez à la catégorie "cool"
-    const cool = dataProducts.cool;
+    const cool = data.cool;
     console.log("Category: cool");
     cool.forEach(coolItem => {
       const coolId = coolItem.id;

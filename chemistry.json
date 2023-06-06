@@ -1,67 +1,78 @@
 {
     
-      "products": [
-        {
-          "name": "hydroxyde de sodium",
-          "strpic": "hydroxydeDeSodium.png",
-          "location": "Armoire B",
-          "quantity": "2000ml"
+    "products": [
+      {
+        "id":"P1",
+        "name": "hydroxyde de sodium",
+        "strpic": "hydroxydeDeSodium.png",
+        "location": "Armoire B",
+        "quantity": "2000ml"
       },
       {
-          "name": "éthanol",
-          "strpic": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Ethanol_Keilstrich.svg/130px-Ethanol_Keilstrich.svg.png",
-          "location": "Armoire A",
-          "quantity": "100ml"
+        "id":"P2",
+        "name": "éthanol",
+        "strpic": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Ethanol_Keilstrich.svg/130px-Ethanol_Keilstrich.svg.png",
+        "location": "Armoire A",
+        "quantity": "100ml"
       },
       {
-          "name": "cyclohexane",
-          "strpic": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Cyclohexane-chair-3D-balls.png/800px-Cyclohexane-chair-3D-balls.png",
-          "location": "Amoire B",
-          "quantity": "40ml"
+        "id":"P3",
+        "name": "cyclohexane",
+        "strpic": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Cyclohexane-chair-3D-balls.png/800px-Cyclohexane-chair-3D-balls.png",
+        "location": "Amoire B",
+        "quantity": "40ml"
       },
       {
+        "id":"P4",
         "name":"oeuf",
         "strpic":"https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2019/01/14/node_520838/39975492/public/2019/01/14/B9718226760Z.1_20190114154859_000%2BGR0CP6GBD.1-0.jpg?itok=zqFJQLDd1547477369",
         "location":"Armoire C",
         "quantity":"12"
       },
       {
+        "id":"P5",
         "name":"acide chlorhydrique",
         "strpic":"acideChlorhydrique.svg",
         "location":"Armoire C",
         "quantity":"12"
       },
       {
+        "id":"P6",
         "name":"ammoniaque",
         "strpic":"ammoniaque.svg",
         "location":"Armoire C",
         "quantity":"12"
       },
       {
+        "id":"P7",
         "name":"acide acétique",
         "strpic":"acideAcetique.png",
         "location":"Armoire C",
         "quantity":"12"
       },
       {
+        "id":"P8",
         "name":"permanganate de potassium",
         "strpic":"permanganateDeSodium.jpg",
         "location":"Armoire C",
         "quantity":"12"
       },
       {
+        "id":"P9",
         "name":"lugol",
         "strpic":"lugol.jfif",
         "location":"Armoire C",
         "quantity":"12"
       },
       {
+        "id":"P10",
         "name":"lugol",
         "strpic":"lugol.jfif",
         "location":"Armoire C",
         "quantity":"12"
       },
       {
+        "id":"P11",
         "name":"sulfate de cuivre II",
         "strpic":"sulfateDeCuivreII.png",
         "location":"Armoire C",
@@ -71,8 +82,6 @@
     ],
 
     "tp":[
-
-  
       {
         "name": "coquille d'oeuf",
         "chemP":["acide nitrique","oeuf"],

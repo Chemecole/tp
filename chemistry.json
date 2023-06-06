@@ -1,0 +1,241 @@
+{
+    
+      "products": [
+        {
+          "name": "hydroxyde de sodium",
+          "strpic": "hydroxydeDeSodium.png",
+          "location": "Armoire B",
+          "quantity": "2000ml"
+      },
+      {
+          "name": "éthanol",
+          "strpic": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Ethanol_Keilstrich.svg/130px-Ethanol_Keilstrich.svg.png",
+          "location": "Armoire A",
+          "quantity": "100ml"
+      },
+      {
+          "name": "cyclohexane",
+          "strpic": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Cyclohexane-chair-3D-balls.png/800px-Cyclohexane-chair-3D-balls.png",
+          "location": "Amoire B",
+          "quantity": "40ml"
+      },
+      {
+        "name":"oeuf",
+        "strpic":"https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2019/01/14/node_520838/39975492/public/2019/01/14/B9718226760Z.1_20190114154859_000%2BGR0CP6GBD.1-0.jpg?itok=zqFJQLDd1547477369",
+        "location":"Armoire C",
+        "quantity":"12"
+      },
+      {
+        "name":"acide chlorhydrique",
+        "strpic":"acideChlorhydrique.svg",
+        "location":"Armoire C",
+        "quantity":"12"
+      },
+      {
+        "name":"ammoniaque",
+        "strpic":"ammoniaque.svg",
+        "location":"Armoire C",
+        "quantity":"12"
+      },
+      {
+        "name":"acide acétique",
+        "strpic":"acideAcetique.png",
+        "location":"Armoire C",
+        "quantity":"12"
+      },
+      {
+        "name":"permanganate de potassium",
+        "strpic":"permanganateDeSodium.jpg",
+        "location":"Armoire C",
+        "quantity":"12"
+      },
+      {
+        "name":"lugol",
+        "strpic":"lugol.jfif",
+        "location":"Armoire C",
+        "quantity":"12"
+      },
+      {
+        "name":"lugol",
+        "strpic":"lugol.jfif",
+        "location":"Armoire C",
+        "quantity":"12"
+      },
+      {
+        "name":"sulfate de cuivre II",
+        "strpic":"sulfateDeCuivreII.png",
+        "location":"Armoire C",
+        "quantity":"12"
+      }
+      
+    ],
+
+    "tp":[
+
+  
+      {
+        "name": "coquille d'oeuf",
+        "chemP":["acide nitrique","oeuf"],
+        "instructions":"mettre l'oeuf dans de l'acide nitrique",
+        "subject": "chimie",
+        "level": ["N6"],
+        "source": "MicroMega",
+        "theme":"B"
+        
+      },
+      {
+        "name": "Oeuf mort",
+        "chemP":["éthanol","oeuf"],
+        "instructions":"explosion d'un oeuf",
+        "subject": "SVT",
+        "level": ["N4","N3"],
+        "source": "Internet",
+        "theme":"A"
+      },
+        
+      {
+        "name": "pousser le piston d'une seringue",
+        "chemP": ["seringue"],
+        "subject": "chimie",
+        "level": ["N5"],
+        "source": ["MicroMega"],
+        "theme": ["solide/liquide/gazeux","eau"]
+    },
+        
+      
+      {
+          "name": "fusion et ébullition de l'eau",
+          "chemP": [],
+          "subject": "chimie",
+          "level": ["N5"],
+          "source": ["MicroMega"],
+          "theme": ["solide/liquide/gazeux","eau"]
+      },
+      {
+          "name": "test avec sulfate de cuivre anhydre",
+          "chemP": ["acide nitrique"],
+          "subject": "chimie",
+          "level": ["N5"],
+          "source": ["MicroMega"],
+          "theme": ["eau", "test caractéristique"]
+      },
+      {
+          "name": "les solides mous",
+          "chemP": ["gel coiffant, farine, fécule de mais"],
+          "subject": "chimie",
+          "level": ["N5"],
+          "source": ["MicroMega"],
+          "theme": ["solide/liquide/gazeux"]
+      },
+      {
+          "name": "le défi du mouchoir",
+          "chemP": ["mouchoir"],
+          "subject": "chimie",
+          "level": ["N5"],
+          "source": ["MicroMega"],
+          "theme": ["solide/liquide/gazeux","magique"]
+      },
+      {
+          "name": "mesurer la masse volumique",
+          "chemP": ["des matériaux"],
+          "subject": "chimie",
+          "level": ["N5","N4"],
+          "source": ["MicroMega"],
+          "theme": ["masse et volume"]
+      },
+      {
+          "name": "densités de liquides",
+          "chemP": ["mouchoir"],
+          "subject": "chimie",
+          "level": ["N6","N5"],
+          "source": ["MicroMega"],
+          "theme": ["mélanges et dissolutions"]
+      },
+      {
+          "name": "gaz dissous dans un soda",
+          "chemP": ["soda, eau de chaux"],
+          "subject": "chimie",
+          "level": ["N5"],
+          "source": ["MicroMega"],
+          "theme": ["mélanges et dissolutions", "test caractéristique"]
+      },
+      {
+        "name": "dissolution du sel et du sable dans l'eau",
+        "chemP": ["sel, sable, sucre"],
+        "subject": "chimie",
+        "level": ["N5"],
+        "source": ["MicroMega"],
+        "theme": ["mélanges et dissolutions"]
+    },
+    {
+      "name": "échelle de teintes",
+      "chemP": ["sulfate de cuivre","permanganate de potassium","lugol"],
+      "subject": "chimie",
+      "level": ["N2"],
+      "source": ["MicroMega"],
+      "theme": ["j"]
+    },
+    {
+      "name": "le défi du mouchoir",
+      "chemP": ["mouchoir"],
+      "subject": "chimie",
+      "level": ["N5"],
+      "source": ["MicroMega"],
+      "theme": ["solide/liquide/gazeux","magique"]
+  },
+  {
+    "name": "le défi du mouchoir",
+    "chemP": ["mouchoir"],
+    "subject": "chimie",
+    "level": ["N5"],
+    "source": ["MicroMega"],
+    "theme": ["solide/liquide/gazeux","magique"]
+  },
+  {
+    "name": "le défi du mouchoir",
+    "chemP": ["mouchoir"],
+    "subject": "chimie",
+    "level": ["N5"],
+    "source": ["MicroMega"],
+    "theme": ["solide/liquide/gazeux","magique"]
+  }
+    ],
+
+    "cool":[
+  
+       {
+        "id":"C1",
+        "name":"this should have ethanol and egg and is C1!",
+        "imageOrVideo":"link",
+        "chemP": ["éthanol", "oeuf"],
+        "subject": ["SVT"],
+        "level": ["N5"],
+        "source": ["MicroMega"],
+        "theme": "A"
+      },
+      {
+        "id":"C2",
+        "name":"this should be ethanol and egg and is C2 !",
+        "imageOrVideo":"link",
+        "chemP": ["éthanol", "oeuf"],
+        "subject": ["SVT"],
+        "level": ["N5"],
+        "source": ["MicroMega"],
+        "theme": "A"
+      },
+      {
+        "id":"C2",
+        "name":"this should be ethanol and acide nitrique!",
+        "imageOrVideo":"link",
+        "chemP": ["éthanol", "acide nitrique"],
+        "subject": ["SVT"],
+        "level": ["N5"],
+        "source": ["MicroMega"],
+        "theme": "A"
+      }
+
+    ]
+  
+    
+  
+  }

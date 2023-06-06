@@ -1,0 +1,178 @@
+<!-- 
+
+
+    First page:
+    Search by TP
+
+    Search by Chemistry Products
+
+
+    "Search by TP" page:
+    Subject: "SVT, Physic, Chemistry, or all"?
+    Level: "6,5,4,3,2,1,Terminal, (coche all possibility) )
+    source: "internet, youtube, mega chemistry,"
+    
+    theme: 
+    
+    
+    A="décrire la constitution et les états de la matière (solide/liquide/gaz, masse volumique, mélange, solubilité, composition de l'air) ", 
+    B="décrire et expliquer les transformations chimiques (test caractéristiques, équation de réaction chimique, acide-base)",
+    C="décrire l'organization de la matière dans l'Univers (structure du système solaire, unités de distance)",
+    D="caractériser un mouvement (mouvements uniformes, 
+    E="modéliser une interaction (force de pesanteur, force, action de contact/à distance,"
+    F="Identifier les sources, les "
+    
+    ""
+
+    Z = "fiches méthodes",
+
+
+    V= "application de la science dans la vie de tous les jours (impressionner ses amis, "
+
+
+    cycle 
+
+    ""
+    (make appear only to the corresponding levels)
+    chapter: "sounds, fdf, exao"
+
+    On the right side: appearing headers of the TP
+with colors green or red depending on whether we have all we need
+
+
+Chemistry 5ème theme:
+
+
+
+    "Search by Chemistry Products":
+    enter in search bar
+
+    [search bar]
+    chemistry products pictures             results of tp containing this 
+   DONEEEE YEAAAAH. STILL THE CSS TO IMPROVE
+   
+   
+   JSON FILE
+   
+
+
+
+    "tp": [
+      {
+        "id": 1,
+        "name": "Coquille d'oeuf",
+        "chemP1":"Acide nitrique",
+        "chemP2":"oeuf",
+        "instructions:":"mettre l'oeuf dans de l'acide nitrique"
+      },
+      {
+        "id": 2,
+        "name": "éthanol",
+        "strPic":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Ethanol_Keilstrich.svg/130px-Ethanol_Keilstrich.svg.png"
+      },
+      {
+        "id": 3,
+        "name": "Cyclohexane",
+        "strPic": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Cyclohexane-chair-3D-balls.png/800px-Cyclohexane-chair-3D-balls.png"
+      }
+    ]
+
+    
+   //{"name":"acide nitrique", "quantity":30, "picture":null, "description":"description", "danger":"danger", "tag":"COOOH"}'
+
+
+//{"tpId":"1","subject": "chemistry", "tagC":"[COOH, ", "source":"internet", "tpStudent":".pdf"}
+
+
+-->
+
+
+<!--
+let result = document.getElementById("result");
+let searchBtn = document.getElementById("search-btn");
+
+let url = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+
+
+searchBtn.addEventListener("click", () => {
+  let userInp = document.getElementById("user-inp").value;
+  if (userInp.length == 0) {
+    result.innerHTML = `<h3>Input Field Cannot Be Empty</h3>`;
+  } else {
+    fetch(url + userInp)
+      .then((response) => response.json())
+      .then((data) => {
+        let myMeal = data.meals[0];
+        console.log(myMeal);
+        console.log(myMeal.strMealThumb);
+        console.log(myMeal.strMeal);
+        console.log(myMeal.strArea);
+        console.log(myMeal.strInstructions);
+        let count = 1;
+        let ingredients = [];
+        for (let i in myMeal) {
+          let ingredient = "";
+          let measure = "";
+          if (i.startsWith("strIngredient") && myMeal[i]) {
+            ingredient = myMeal[i];
+            measure = myMeal[`strMeasure` + count];
+            count += 1;
+            ingredients.push(`${measure} ${ingredient}`);
+          }
+        }
+        console.log(ingredients);
+
+        result.innerHTML = `
+    <img src=${myMeal.strMealThumb}>
+    <div class="details">
+        <h2>${myMeal.strMeal}</h2>
+        <h4>${myMeal.strArea}</h4>
+    </div>
+    <div id="ingredient-con"></div>
+    <div id="recipe">
+        <button id="hide-recipe">X</button>
+        <pre id="instructions">${myMeal.strInstructions}</pre>
+    </div>
+    <button id="show-recipe">View Recipe</button>
+    `;
+        let ingredientCon = document.getElementById("ingredient-con");
+        let parent = document.createElement("ul");
+        let recipe = document.getElementById("recipe");
+        let hideRecipe = document.getElementById("hide-recipe");
+        let showRecipe = document.getElementById("show-recipe");
+
+        ingredients.forEach((i) => {
+          let child = document.createElement("li");
+          child.innerText = i;
+          parent.appendChild(child);
+          ingredientCon.appendChild(parent);
+        });
+
+        hideRecipe.addEventListener("click", () => {
+          recipe.style.display = "none";
+        });
+        showRecipe.addEventListener("click", () => {
+          recipe.style.display = "block";
+        });
+      })
+      .catch(() => {
+        result.innerHTML = `<h3>Invalid Input</h3>`;
+      });
+  }
+}); -->

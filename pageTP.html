@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recherche par TP</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+   
+   
+  </head>
+  <body>
+
+    <header>
+      <a href="homePage.html"> <img src="source\images\homePageButton.png"></a>
+      <h1>  Recherche par TP</h1>
+    </header>
+
+    <section>
+    <form action="" method="">
+
+        <h5> Matière</h5>
+        <div class="subject">
+        <input type="checkbox" rel="physique" onchange="change(this);"> <label for="Physique">Physique</label>
+        <input type="checkbox" rel="chimie" onchange="change(this)"> <label for="Chimie">Chimie</label>
+        <input type="checkbox" rel="SVT"onchange="change()"> <label for="SVT">SVT</label>
+        </div>
+
+        <h5> Niveau</h5>
+        <div class="level">
+        <input type="checkbox" rel="N6" onchange="change()"><label for="N6">6ème</label>
+        <input type="checkbox" rel="N5"onchange="change()">5ème
+        <input type="checkbox" rel="N4"onchange="change()">4ème
+        <input type="checkbox" rel="N3"onchange="change()">3ème
+        <input type="checkbox" rel="NS"onchange="change()">Seconde
+        <input type="checkbox" rel="NP"onchange="change()">Première
+        <input type="checkbox" rel="NT"onchange="change()">Terminale<br>
+        </div>
+
+        <h5> Source</h5>
+        <div class="source">
+        <input type="checkbox" rel="Internet" onchange="change()">Internet<br>
+        <input type="checkbox" rel="Youtube" onchange="change()">Youtube<br>
+        <input type="checkbox" rel="MicroMega" onchange="change()">Micro Méga (manuel de cycle 4) <br>
+        <input type="checkbox" rel="Hatier" onchange="change()">Physique Chimie Tle Spécialité Hatier<br>
+        </div>
+
+        <h5> Thème</h5>
+        <div class="theme">
+          <input type="checkbox" rel="A" onchange="change(this)">décrire la constitution et les états de la matière (solide/liquide/gaz, masse volumique, mélange, solubilité, composition de l'air)<br>
+
+        </div>
+     <!--
+    
+    A="décrire la constitution et les états de la matière (solide/liquide/gaz, masse volumique, mélange, solubilité, composition de l'air) ", 
+    B="décrire et expliquer les transformations chimiques (test caractéristiques, équation de réaction chimique, acide-base)",
+    C="décrire l'organization de la matière dans l'Univers (structure du système solaire, unités de distance)",
+    D="caractériser un mouvement (mouvements uniformes, 
+    E="modéliser une interaction (force de pesanteur, force, action de contact/à distance,"
+    F="Identifier les sources, les "
+    
+    ""
+
+    Z = "fiches méthodes",
+     -->
+
+    </form>
+  </section>
+    
+<section>
+    <div id="result">
+    
+      </div>
+
+    </section>
+
+    <section >
+      <div id="coolResult">
+      
+        </div>
+  
+      </section>
+
+    <script src="scriptTP.js"></script>
+  </body>
+</html>

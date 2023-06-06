@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recherche par produits</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+   
+   
+  </head>
+  <body>
+    <div id="container2">
+    <header>
+      <a href="homePage.html"> <img src="source\images\homePageButton.png"/></a>
+      <h1>Recherche par produits</h1>
+    </header>
+    
+    <input list="chemistryDropdown" id="input">
+    <datalist id="chemistryDropdown" type="text" placeholder="Choisis un produit chimique...">
+    </datalist>
+    <button id= "btnAddProduct"> ajouter à la liste de produits</button>
+    <section class ="section1">
+      <p>Produits sélectionnés: </p>
+    <div id="selectedProducts">
+      
+
+    </div>
+  </section>
+  <section class ="section2">
+    <p>TPs disponibles: </p>
+    <div id="availableTP">
+      
+    </div>
+  </section>
+
+  <section class ="section3">
+    <p>Trucs amusants disponibles: </p>
+    <div id="availableCoolStuff">
+      
+    </div>
+  </section>
+
+
+    </div>
+    <script src="scriptProduct.js" async></script>
+  </body>
+</html>

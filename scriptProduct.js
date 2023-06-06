@@ -51,16 +51,17 @@ class CoolStuff{
 let tp
 let data
 let dataCool
+let dataProducts = []
+let dataTP = []
+
 
 window.onload = async function() {
   
-tp = recoverDataTP()
-data = recoverDataProducts()
-dataCool = recoverDataCoolStuff()
+//tp = recoverDataTP()
+//data = recoverDataProducts()
+//dataCool = recoverDataCoolStuff()
 await new Promise(resolve => setTimeout(resolve, 3000));
 };
-let dataProducts = []
-let dataTP = []
 
 fetch(url)
   .then(response => response.json())
@@ -75,7 +76,7 @@ fetch(url)
       const productLocation = product.location;
       const productQuantity = product.quantity;
       prod = new Product(productId, productName, productStrpic, productLocation, productQuantity)
-      dataProducts.append(prod)
+      dataProducts.push(prod)
       console.log("Product: " + productName);
       console.log("Image: " + productStrpic);
       console.log("Location: " + productLocation);
@@ -97,7 +98,7 @@ fetch(url)
       const tpTheme = tpItem.theme;
 
       experiment = new Experiment(tpId,tpName,tpChemP,tpInstructions,tpSubject,tpLevel,tpSource,tpTheme)
-      dataTP.append(experiment)
+      dataTP.push(experiment)
       console.log("TP Name: " + tpName);
       console.log("Chemical Properties: " + tpChemP);
       console.log("Instructions: " + tpInstructions);

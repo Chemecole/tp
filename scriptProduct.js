@@ -129,6 +129,7 @@ fetch(url)
     dropdown.appendChild(option);
   }
 
+  makeDropdown();
   //once the first product has been chosen, it would be more efficient to make it can only
   //get reduced (because the more you add ingredients, the less choice of TPs)
   //but because of the "remove" button, i think it 

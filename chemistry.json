@@ -83,6 +83,7 @@
 
     "tp":[
       {
+        "id":"T001",
         "name": "coquille d'oeuf",
         "chemP":["acide nitrique","oeuf"],
         "instructions":"mettre l'oeuf dans de l'acide nitrique",
@@ -93,6 +94,7 @@
         
       },
       {
+        "id":"T002",
         "name": "Oeuf mort",
         "chemP":["éthanol","oeuf"],
         "instructions":"explosion d'un oeuf",
@@ -103,6 +105,7 @@
       },
         
       {
+        "id":"T003",
         "name": "pousser le piston d'une seringue",
         "chemP": ["seringue"],
         "subject": "chimie",
@@ -113,6 +116,7 @@
         
       
       {
+          "id":"T004",
           "name": "fusion et ébullition de l'eau",
           "chemP": [],
           "subject": "chimie",
@@ -121,6 +125,7 @@
           "theme": ["solide/liquide/gazeux","eau"]
       },
       {
+          "id":"T005",
           "name": "test avec sulfate de cuivre anhydre",
           "chemP": ["acide nitrique"],
           "subject": "chimie",
@@ -129,6 +134,7 @@
           "theme": ["eau", "test caractéristique"]
       },
       {
+          "id":"T006",
           "name": "les solides mous",
           "chemP": ["gel coiffant, farine, fécule de mais"],
           "subject": "chimie",
@@ -137,6 +143,7 @@
           "theme": ["solide/liquide/gazeux"]
       },
       {
+          "id":"T007",
           "name": "le défi du mouchoir",
           "chemP": ["mouchoir"],
           "subject": "chimie",
@@ -145,6 +152,7 @@
           "theme": ["solide/liquide/gazeux","magique"]
       },
       {
+          "id":"T008",
           "name": "mesurer la masse volumique",
           "chemP": ["des matériaux"],
           "subject": "chimie",
@@ -153,6 +161,7 @@
           "theme": ["masse et volume"]
       },
       {
+          "id":"T009",
           "name": "densités de liquides",
           "chemP": ["mouchoir"],
           "subject": "chimie",
@@ -161,14 +170,16 @@
           "theme": ["mélanges et dissolutions"]
       },
       {
-          "name": "gaz dissous dans un soda",
-          "chemP": ["soda, eau de chaux"],
-          "subject": "chimie",
-          "level": ["N5"],
-          "source": ["MicroMega"],
-          "theme": ["mélanges et dissolutions", "test caractéristique"]
+        "id":"T010",
+        "name": "gaz dissous dans un soda",
+        "chemP": ["soda, eau de chaux"],
+        "subject": "chimie",
+        "level": ["N5"],
+        "source": ["MicroMega"],
+        "theme": ["mélanges et dissolutions", "test caractéristique"]
       },
       {
+        "id":"T011",
         "name": "dissolution du sel et du sable dans l'eau",
         "chemP": ["sel, sable, sucre"],
         "subject": "chimie",
@@ -177,6 +188,7 @@
         "theme": ["mélanges et dissolutions"]
     },
     {
+      "id":"T012",
       "name": "échelle de teintes",
       "chemP": ["sulfate de cuivre","permanganate de potassium","lugol"],
       "subject": "chimie",
@@ -185,6 +197,7 @@
       "theme": ["j"]
     },
     {
+      "id":"T013",
       "name": "le défi du mouchoir",
       "chemP": ["mouchoir"],
       "subject": "chimie",
@@ -193,6 +206,7 @@
       "theme": ["solide/liquide/gazeux","magique"]
   },
   {
+    "id":"T014",
     "name": "le défi du mouchoir",
     "chemP": ["mouchoir"],
     "subject": "chimie",
@@ -201,6 +215,7 @@
     "theme": ["solide/liquide/gazeux","magique"]
   },
   {
+    "id":"T015",
     "name": "le défi du mouchoir",
     "chemP": ["mouchoir"],
     "subject": "chimie",

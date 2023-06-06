@@ -196,102 +196,30 @@ class Product {
             hideOrShow(filters.sourceF, "source");
             hideOrShow(filters.themeF, "theme");
 
-            /*
             for (var i = 0; i < dataTP.length; i++) {
-              var experiment = dataTP[i];
-              ///console.log("/n /n this experiment is"+tp[i].name)
-              
-              if (filters.subjectF.length > 0) {
-                var isHidden = true;
-          
-                for (var j = 0; j < filters.subjectF.length; j++) {
-                  var filter = filters.subjectF[j];
-                  if (experiment.subject.includes(filter)) {
-                    isHidden = false;
-                    break;
-                  }
-                
-                }
-          
-                if (isHidden) {
-                  hiddenElems.push(experiment);
-                }
-              }
-      
-             if (filters.levelF.length > 0) {
-                var isHidden = true;
-          
-                for (var j = 0; j < filters.levelF.length; j++) {
-                  var filter = filters.levelF[j];
-          
-                  if (experiment.level.includes(filter)) {
-                    isHidden = false;
-                    break;
-                  }
-                }
-          
-                if (isHidden) {
-                  hiddenElems.push(experiment);
-                }
-              }
-
-              
-             if (filters.sourceF.length > 0) {
-              var isHidden = true;
-        
-              for (var k = 0; k < filters.sourceF.length; k++) {
-                var filter = filters.sourceF[k];
-        
-                if (experiment.source.includes(filter)) {
-                  isHidden = false;
-                  break;
-                }
-              }
-        
-              if (isHidden) {
-                hiddenElems.push(experiment);
-              }
-            }
-
-            
-            if (filters.themeF.length > 0) {
-              var isHidden = true;
-        
-              for (var l = 0; l < filters.themeF.length; l++) {
-                var filter = filters.themeF[l];
-        
-                if (experiment.level.includes(filter)) {
-                  isHidden = false;
-                  break;
-                }
-              }
-        
-              if (isHidden) {
-                hiddenElems.push(experiment);
-              }
-            }
-            }
-            */
-            
-            for (var i = 0; i < dataTP.length; i++) {
+              console.log(filters.subjectF, filters)
             if(filters.subjectF =='' && filters.levelF == '' && filters.sourceF == '' && filters.themeF ==''){
               document.getElementById("result").innerHTML=" "
             }
             else{
 
-              if(document.getElementById(dataTP[i].id) === null){
+              if(document.getElementById(dataTP[i].id) === null)
+              {
               
                 let tpHTML = transformInHTML(dataTP[i])
                 document.getElementById("result").appendChild(tpHTML)
                             
-                }
-                else{
+              }
+                else
+                {
                   tpToShow =  document.getElementById(dataTP[i].id)
                   tpToShow.style.display = "inline-block";
                   tpToShow.parentElement.style.display="inline-block";
                 }
 
             }
+            
+          
             
             }
           

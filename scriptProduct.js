@@ -49,7 +49,6 @@ class CoolStuff{
 }
 
 let tp
-let data
 let dataCool
 let dataProducts = []
 let dataTP = []
@@ -58,16 +57,16 @@ let dataTP = []
 window.onload = async function() {
   
 //tp = recoverDataTP()
-//data = recoverDataProducts()
+//dataProducts = recoverDataProducts()
 //dataCool = recoverDataCoolStuff()
 await new Promise(resolve => setTimeout(resolve, 3000));
 };
 
 fetch(url)
   .then(response => response.json())
-  .then(data => {
+  .then(dataProducts => {
     // Accédez à la catégorie "products"
-    const products = data.products;
+    const products = dataProducts.products;
     console.log("Category: products");
     products.forEach(product => {
       const productId = product.id;
@@ -82,7 +81,7 @@ fetch(url)
 
     // Accédez à la catégorie "tp"
     
-    const tp = data.tp;
+    const tp = dataProducts.tp;
     console.log("Category: tp");
     tp.forEach(tpItem => {
       const tpId = tpItem.id;
@@ -100,7 +99,7 @@ fetch(url)
     });
 
     // Accédez à la catégorie "cool"
-    const cool = data.cool;
+    const cool = dataProducts.cool;
     console.log("Category: cool");
     cool.forEach(coolItem => {
       const coolId = coolItem.id;
@@ -222,8 +221,8 @@ function actualizeCoolStuff(selectedProducts){
 }
 }
 
-/*
-function isValable(arrayUserInp,userInp){
+
+function canBeAddedToList(arrayUserInp,userInp){
   let dejaSelected = false
   let containedInData = false
   for(i=0; i < arrayUserInp.length; i++){
@@ -232,8 +231,8 @@ function isValable(arrayUserInp,userInp){
       dejaSelected = true
     }
   }
-  for(i=0; i< data.length;i++){
-      if(data[i].name === userInp){
+  for(i=0; i< dataProducts.length;i++){
+      if(dataProducts[i].name === userInp){
           containedInData = true
       }
 
@@ -243,16 +242,16 @@ function isValable(arrayUserInp,userInp){
 
     alert("désolé ce produit n'est pas présent dans la liste de produits disponibles. Peut-être c'est présent sous un autre nom !")
   }
-  let isValable = false
+  let canBeAddedToList = false
   if(dejaSelected === false && containedInData === true){
-      isValable = true
+      canBeAddedToList = true
   }
-  return isValable
+  return canBeAddedToList
 }
-*/
+
 
 function addProduct(arrayUserInp, userInp){
-  if(isValable(arrayUserInp, userInp)=== true){
+  if(canBeAddedToList(arrayUserInp, userInp)=== true){
     arrayUserInp.push(userInp)
   }
 return arrayUserInp
@@ -260,7 +259,7 @@ return arrayUserInp
 
 
 async function actualizeProducts(arrayUserInp){
-  //data = recoverDataProducts()
+  //dataProducts = recoverDataProducts()
   selectedProductsSection.innerHTML=""
   //await new Promise(resolve => setTimeout(resolve, 200));
 
@@ -268,10 +267,10 @@ async function actualizeProducts(arrayUserInp){
     
     let i2=0
     let found= false
-    while(i2 < data.length && found === false){
-      if(data[i2].name == arrayUserInp[i]){
+    while(i2 < dataProducts.length && found === false){
+      if(dataProducts[i2].name == arrayUserInp[i]){
       found=true
-      selectedProductsSection.innerHTML+='<div class = "oneSelectedProduct"><button class="btn-remove" onclick="btnClickedRemove(this)"></button><img src="source/images/chemicals/' + data[i2].strpic + ' " width="200px" ><h5>' + data[i2].name + '</h5><p>Emplacement : ' + data[i2].location + '</br> Quantité : '+ data[i2].quantity + '</p> </div>'
+      selectedProductsSection.innerHTML+='<div class = "oneSelectedProduct"><button class="btn-remove" onclick="btnClickedRemove(this)"></button><img src="source/images/chemicals/' + dataProducts[i2].strpic + ' " width="200px" ><h5>' + dataProducts[i2].name + '</h5><p>Emplacement : ' + dataProducts[i2].location + '</br> Quantité : '+ dataProducts[i2].quantity + '</p> </div>'
     }
     i2++
   }

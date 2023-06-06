@@ -1,5 +1,5 @@
-const url ="http://localhost:3000/products"
-const urlTP ="http://localhost:3000/tp"
+const url ="https://chemecole.github.io/tp/chemistry.json/products"
+const urlTP ="https://chemecole.github.io/tp/chemistry.json/tp"
 
 
 class Experiment{

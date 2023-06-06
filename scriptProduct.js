@@ -8,9 +8,9 @@ let btnAddProduct = document.getElementById('btnAddProduct')
 
 dropdown.selectedIndex = 0;
 
-const url ="https://chemecole.github.io/tp/chemistry.json/products"
-const urlTP ="https://chemecole.github.io/tp/chemistry.json/tp"
-const urlCool = "https://chemecole.github.io/tp/chemistry.json/cool"
+const url ="https://chemecole.github.io/tp/chemistry.json"
+const urlTP ="https://chemecole.github.io/tp/chemistry.json"
+const urlCool = "https://chemecole.github.io/tp/chemistry.json"
 
 
 

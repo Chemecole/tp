@@ -283,9 +283,9 @@ async function actualizeProducts(arrayUserInp){
 }
   //check tutorials about arrows functions
 btnAddProduct.addEventListener('click',e => {
-  let userInp = document.getElementById("input").value.toLowerCase()
+  let userInp = document.getElementById("input").name.toLowerCase()
   arrayUserInp = addProduct(arrayUserInp,userInp)
-  document.getElementById("input").value =""
+  //document.getElementById("input").name =""
   actualizeTP(arrayUserInp)
   actualizeProducts(arrayUserInp)
   actualizeCoolStuff(arrayUserInp)

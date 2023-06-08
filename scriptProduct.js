@@ -283,7 +283,7 @@ async function actualizeProducts(arrayUserInp){
 }
   //check tutorials about arrows functions
 btnAddProduct.addEventListener('click',e => {
-  let userInp = document.getElementById("input").name.toLowerCase()
+  let userInp = document.getElementById("chemistryDropdown").value.toLowerCase()
   arrayUserInp = addProduct(arrayUserInp,userInp)
   //document.getElementById("input").name =""
   actualizeTP(arrayUserInp)

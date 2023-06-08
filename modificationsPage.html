@@ -28,8 +28,10 @@
             <label for="titreTP_form">Titre du TP :</label>
             <input type="text" id="titreTP_form" name="username" required>
 
-            <label for="materiel_form">Matériel :</label>
-            <input type="text" id="materiel_form" name="password" required>
+            <input type="select" id="materiel_form" name="password" required>
+            <select id="chemistryDropdown" name="input">
+                <option value="none" selected disabled hidden>Choisis un élément chimique</option>
+              </select>
 
             <label for="niveau_form">Niveau :</label>
             <input type="text" id="niveau_form" name="password" required>
@@ -52,36 +54,7 @@
     </div>
 
     <div>
-        <h4>Modifier un TP</h4>
-        <form class="formTP">
-            <label for="titreTP_form">Titre du TP :</label>
-            <input type="text" id="titreTP_form" name="username" required>
-
-            <label for="materiel_form">Matériel :</label>
-            <input type="select" id="materiel_form" name="password" required>
-            <select id="chemistryDropdown" name="input">
-                <option value="none" selected disabled hidden>Choisis un élément chimique</option>
-              </select>
-      
-
-            <label for="niveau_form">Niveau :</label>
-            <input type="text" id="niveau_form" name="password" required>
-
-            <label for="theme_form">Matériel :</label>
-            <input type="text" id="theme_form" name="password" required>
-
-            <label for="elevePDF_form">TP élève:</label>
-            <input type="file" id="elevePDF_form" name="upload" accept="application/pdf" />
-
-            <label for="laboPDF_form">TP Laborantin:</label>
-            <input type="file" id="laboPDF_form" name="upload" accept="application/pdf" />
-
-            <label for="reponsePDF_form"> réponses:</label>
-            <input type="file" id="reponsePDF_form" name="upload" accept="application/pdf" />
-
-            <!-- Ajoutez ici les autres champs pour les valeurs du fichier JSON -->
-            <input type="submit" value="Enregistrer">
-        </form>
+       
     </div>
     <script src="scriptModification.js"></script>
     <script src="scriptProduct.js"></script>

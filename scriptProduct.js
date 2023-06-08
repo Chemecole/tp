@@ -59,7 +59,7 @@ window.onload = async function() {
 //tp = recoverDataTP()
 //dataProducts = recoverDataProducts()
 //dataCool = recoverDataCoolStuff()
-await new Promise(resolve => setTimeout(resolve, 1000));
+await new Promise(resolve => setTimeout(resolve, 3000));
 makeDropdown();
 };
 

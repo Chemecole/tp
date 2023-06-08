@@ -121,6 +121,7 @@ fetch(url)
     option = document.createElement('option');
     
     option.text = dataProducts[i].name;
+    option.value = dataProducts[i].name;
     console.log(option)
     dropdown.appendChild(option);
   }

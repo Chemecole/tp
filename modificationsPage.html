@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    <title>Modifications</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+   
+   
+  </head>
+  <body>
+
+    <header>
+      <a href="homePage.html"> <img src="source\images\homePageButton.png"/></a>
+      <h1>Modifications</h1>
+    </header>
+
+    <form id="formTP">
+        <label for="titreTP_form">Titre du TP :</label>
+        <input type="text" id="titreTP_form" name="username" required>
+
+        <label for="materiel_form">Matériel :</label>
+        <input type="text" id="materiel_form" name="password" required>
+
+        <label for="niveau_form">Niveau :</label>
+        <input type="text" id="niveau_form" name="password" required>
+
+        <label for="theme_form">Matériel :</label>
+        <input type="text" id="theme_form" name="password" required>
+
+        <label for="elevePDF_form">TP élève:</label>
+        <input type="file" id="elevePDF_form" name="upload" accept="application/pdf" />
+
+        <label for="laboPDF_form">TP Laborantin:</label>
+        <input type="file" id="laboPDF_form" name="upload" accept="application/pdf" />
+
+        <label for="reponsePDF_form"> réponses:</label>
+        <input type="file" id="reponsePDF_form" name="upload" accept="application/pdf" />
+
+        <!-- Ajoutez ici les autres champs pour les valeurs du fichier JSON -->
+        <input type="submit" value="Enregistrer">
+      </form>
+
+    <script src="scriptModification.js"></script>
+</body>
+</html>
+

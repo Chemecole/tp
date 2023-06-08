@@ -1,5 +1,12 @@
+const url ="https://chemecole.github.io/tp/chemistry.json"
+
 var formData = $("form.formTP").serializeObject();
 console.log(formData);
+
+
+let dataCool
+let dataProducts = []
+let dataTP = []
 
 window.onload = async function() {
   
@@ -27,3 +34,40 @@ window.onload = async function() {
         
         });
     
+        // Accédez à la catégorie "tp"
+        
+        const tp = data.tp;
+        console.log("Category: tp");
+        tp.forEach(tpItem => {
+          const tpId = tpItem.id;
+          const tpName = tpItem.name;
+          const tpChemP = tpItem.chemP;
+          const tpInstructions = tpItem.instructions;
+          const tpSubject = tpItem.subject;
+          const tpLevel = tpItem.level;
+          const tpSource = tpItem.source;
+          const tpTheme = tpItem.theme;
+    
+          experiment = new Experiment(tpId,tpName,tpChemP,tpInstructions,tpSubject,tpLevel,tpSource,tpTheme)
+          dataTP.push(experiment)
+      
+        });
+    
+        // Accédez à la catégorie "cool"
+        const cool = data.cool;
+        console.log("Category: cool");
+        cool.forEach(coolItem => {
+          const coolId = coolItem.id;
+          const coolName = coolItem.name;
+          const coolImageOrVideo = coolItem.imageOrVideo;
+          
+          
+        });
+      })
+      .catch(error => {
+        // Gérez les erreurs ici
+        console.error(error);
+      });
+
+
+      console.log("yp")

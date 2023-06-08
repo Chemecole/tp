@@ -119,7 +119,7 @@ fetch(url)
   let option;     
   for (let i = 0; i < dataProducts.length; i++) {
     option = document.createElement('option');
-    //option.value = dataProducts[i].name;
+    option.value = dataProducts[i].name;
     option.text = dataProducts[i].name;
     
     console.log(option)

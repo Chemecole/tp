@@ -1,6 +1,50 @@
-let dataCool
-let dataProducts = []
-let dataTP = []
+dataTP = []
+dataProducts = []
+//export {dataTP}
+
+const url ="https://chemecole.github.io/tp/chemistry.json"
+
+dropdown = document.getElementById('chemistryDropdown');
+dropdown.selectedIndex = 0;
+
+class Product {
+    constructor(id, name, strpic, location, quantity)
+   {
+      this.id = id;
+      this.name = name;
+      this.strpic = strpic;
+      this.location = location;
+      this.quantity = quantity;
+    }
+  
+  }
+  
+  class Experiment{
+    constructor(id, name, chemP, instructions, subject, level, source, theme){
+      this.id =id;
+      this.name = name;
+      this.chemP = chemP;
+      this.instructions = instructions;
+      this.subject = subject;
+      this.level = level;
+      this.source = source;
+      this.theme = theme;
+    }
+  }
+  class CoolStuff{
+    constructor(id, name, imageOrVideo, chemP, subject, level, source, theme ){
+      this.id =id;
+      this.name = name;
+      this.imageOrVideo = imageOrVideo;
+      this.chemP = chemP;
+      this.subject = subject;
+      this.level = level;
+      this.source = source;
+      this.theme = theme;
+    }
+  
+  }
+
 
 window.onload = async function() {
   
@@ -31,7 +75,6 @@ window.onload = async function() {
         // Accédez à la catégorie "tp"
         
         const tp = data.tp;
-        console.log("Category: tp");
         tp.forEach(tpItem => {
           const tpId = tpItem.id;
           const tpName = tpItem.name;
@@ -49,7 +92,6 @@ window.onload = async function() {
     
         // Accédez à la catégorie "cool"
         const cool = data.cool;
-        console.log("Category: cool");
         cool.forEach(coolItem => {
           const coolId = coolItem.id;
           const coolName = coolItem.name;
@@ -62,3 +104,16 @@ window.onload = async function() {
         // Gérez les erreurs ici
         console.error(error);
       });
+
+
+ console.log("yoo dataTP", dataTP)
+ function makeDropdown(){
+  let option;     
+  for (let i = 0; i < dataProducts.length; i++) {
+    option = document.createElement('option');
+    option.value = dataProducts[i].name;
+    option.text = dataProducts[i].name;
+   
+    dropdown.appendChild(option);
+  }
+ }

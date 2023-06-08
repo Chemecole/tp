@@ -24,7 +24,7 @@
 
     <div>
         <h4>Ajouter un TP</h4>
-        <form id="formTP">
+        <form class="formTP">
             <label for="titreTP_form">Titre du TP :</label>
             <input type="text" id="titreTP_form" name="username" required>
 
@@ -58,11 +58,21 @@
 
     <div>
         <h4>Modifier un TP</h4>
+        <div>
+            <select id="tpNameSelect" name="input" required multiple>
+            <option value="none" selected disabled hidden>Choisis le nom de TP
+            </option></select>
+        </div>
+        <div >
+            <div id="displayFormOfSelectedTP" class="resultSelectTP">
+                
+            </div>
 
-        
+        </div>
+
     </div>
-    <script src="scriptModification.js"></script>
-    <script src="scriptProduct.js"></script>
+    <script src="loadJSON.js" async defer></script>
+    <script src="scriptModification.js" async defer></script>
 </body>
 </html>
 

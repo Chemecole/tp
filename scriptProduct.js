@@ -1,4 +1,4 @@
-let dropdown = document.getElementById('chemistryDropdown');
+//let dropdown = document.getElementById('chemistryDropdown');
 let selectedProductsSection = document.getElementById("selectedProducts");
 let availableTP = document.getElementById("availableTP")
 let availableCoolStuff = document.getElementById("availableCoolStuff")
@@ -6,62 +6,12 @@ let defaultOption = document.createElement('option');
 let arrayUserInp = [];
 let btnAddProduct = document.getElementById('btnAddProduct')
 
-dropdown.selectedIndex = 0;
 
-const url ="https://chemecole.github.io/tp/chemistry.json"
 
-class Product {
-  constructor(id, name, strpic, location, quantity)
- {
-    this.id = id;
-    this.name = name;
-    this.strpic = strpic;
-    this.location = location;
-    this.quantity = quantity;
-  }
-
-}
-
-class Experiment{
-  constructor(id, name, chemP, instructions, subject, level, source, theme){
-    this.id =id;
-    this.name = name;
-    this.chemP = chemP;
-    this.instructions = instructions;
-    this.subject = subject;
-    this.level = level;
-    this.source = source;
-    this.theme = theme;
-  }
-}
-class CoolStuff{
-  constructor(id, name, imageOrVideo, chemP, subject, level, source, theme ){
-    this.id =id;
-    this.name = name;
-    this.imageOrVideo = imageOrVideo;
-    this.chemP = chemP;
-    this.subject = subject;
-    this.level = level;
-    this.source = source;
-    this.theme = theme;
-  }
-
-}
+//const url ="https://chemecole.github.io/tp/chemistry.json"
 
 //la place de load JSON avanjt la créationde loadJsons
 
-
- function makeDropdown(){
-  let option;     
-  for (let i = 0; i < dataProducts.length; i++) {
-    option = document.createElement('option');
-    option.value = dataProducts[i].name;
-    option.text = dataProducts[i].name;
-    
-    console.log(option)
-    dropdown.appendChild(option);
-  }
- }
 
 
   //once the first product has been chosen, it would be more efficient to make it can only

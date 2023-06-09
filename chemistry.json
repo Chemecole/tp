@@ -77,6 +77,13 @@
         "strpic":"sulfateDeCuivreII.png",
         "location":"Armoire C",
         "quantity":"12"
+      },
+      {
+        "id":"P12",
+        "name":"sulfavavaivre II",
+        "strpic":"sulhuivreII.png",
+        "location":"Armoire C",
+        "quantity":"12"
       }
       
     ],

@@ -1,3 +1,5 @@
+window.dataTP
+window.dataProducts
 dataTP = []
 dataProducts = []
 //export {dataTP}
@@ -115,5 +117,6 @@ window.onload = async function() {
     option.text = dataProducts[i].name;
    
     dropdown.appendChild(option);
+    console.log(i)
   }
  }

@@ -1,4 +1,3 @@
-const url ="https://chemecole.github.io/tp/chemistry.json"
 
 
 

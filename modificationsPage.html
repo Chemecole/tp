@@ -12,10 +12,13 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+    <script defer src="loadJSON.js"></script>
+    <script defer src="scriptModification.js"></script>
+
    
    
   </head>
-  <body>
+  <body onload="makeList(dataTP);">
 
     <header>
       <a href="homePage.html"> <img src="source\images\homePageButton.png"/></a>
@@ -65,14 +68,40 @@
         </div>
         <div >
             <div id="displayFormOfSelectedTP" class="resultSelectTP">
-                
+                <form class="formTP">
+                    <pre>
+                    <label for="titreTP_formMODIFY">Titre du TP :</label>
+                    <input type="text" id="titreTP_formMODIFY" name="username" required>
+        
+                    
+            
+        
+        
+                    <label for="niveau_formMODIFY">Niveau :</label>
+                    <input type="text" id="niveau_formMODIFY" name="password" required>
+        
+                    <label for="theme_formMODIFY">Thème :</label>
+                    <input type="text" id="theme_formMODIFY" name="password" required>
+        
+                    <label for="elevePDF_formMODIFY">TP élève:</label>
+                    <input type="file" id="elevePDF_formMODIFY" name="upload" accept="application/pdf" />
+        
+                    <label for="laboPDF_formMODIFY">TP Laborantin:</label>
+                    <input type="file" id="laboPDF_formMODIFY" name="upload" accept="application/pdf" />
+        
+                    <label for="reponsePDF_formMODIFY"> réponses:</label>
+                    <input type="file" id="reponsePDF_formMODIFY" name="upload" accept="application/pdf" />
+        
+                    <!-- Ajoutez ici les autres champs pour les valeurs du fichier JSON -->
+                    <input type="submit" value="Enregistrer">
+                </pre>
+                </form>
             </div>
 
         </div>
 
     </div>
-    <script src="loadJSON.js" async defer></script>
-    <script src="scriptModification.js" async defer></script>
+    
 </body>
 </html>
 

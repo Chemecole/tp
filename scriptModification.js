@@ -3,20 +3,34 @@
 divWhereDisplay = document.getElementById("displayFormOfSelectedTP")
 tpNameSelect = document.getElementById("tpNameSelect")
 result =  document.querySelector(".resultSelectTP");
-window.onload = async function() {
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    makeDropdown();
-    makeList(dataTP);
-};
+
+
+
+
+
 
 tpNameSelect.addEventListener("change", (event) => {
+    nameOfChoosenTP = event.target.value
     divWhereDisplay.textContent = `You like ${event.target.value}`;
+    createFilledForm(dataTP, nameOfChoosenTP)
   });
 
 
+function createFilledForm(tableau,choosenTP){
+    console.log("haa")
+    for (let i = 0; i < tableau.length; i++){
+        if(tableau[i].name == choosenTP){
+
+            console.log(tableau[i].name,tableau[i].level )
+        }
+    }
+
+
+}
+
 function makeList(tableau){
     let option;   
-    
+    console.log("tableu", tableau.length)
     for (let i = 0; i < tableau.length; i++) {
         
       option = document.createElement('option');
@@ -38,6 +52,18 @@ function makeList(tableau){
 
     
    }
+
+   /*window.onload = async function() {  
+    };*/
+
+       
+       window.addEventListener('load', (event) => {
+        makeList(dataTP);
+        console.log("load")
+        //makeDropdown();
+    });
+
+
    
    
    

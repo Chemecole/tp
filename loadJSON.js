@@ -71,6 +71,7 @@ window.onload = async function() {
           const productQuantity = product.quantity;
           prod = new Product(productId, productName, productStrpic, productLocation, productQuantity)
           dataProducts.push(prod)
+          //console.log(dataProducts)
         
         });
     
@@ -115,8 +116,7 @@ window.onload = async function() {
     option = document.createElement('option');
     option.value = dataProducts[i].name;
     option.text = dataProducts[i].name;
-   
     dropdown.appendChild(option);
-    console.log(i)
+    //console.log(i)
   }
  }

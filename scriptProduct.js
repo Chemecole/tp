@@ -112,26 +112,15 @@ function actualizeCoolStuff(selectedProducts){
 
 function canBeAddedToList(arrayUserInp,userInp){
   let dejaSelected = false
-  let containedInData = false
   for(i=0; i < arrayUserInp.length; i++){
     if(arrayUserInp[i]===userInp){
       alert('ce produit chimique est déjà selectionné')
       dejaSelected = true
     }
   }
-  for(i=0; i< dataProducts.length;i++){
-      if(dataProducts[i].name === userInp){
-          containedInData = true
-      }
 
-  }
-
-  if(containedInData === false){
-
-    alert("désolé ce produit n'est pas présent dans la liste de produits disponibles. Peut-être c'est présent sous un autre nom !")
-  }
   let canBeAddedToList = false
-  if(dejaSelected === false && containedInData === true){
+  if(dejaSelected === false){
       canBeAddedToList = true
   }
   return canBeAddedToList
@@ -169,7 +158,7 @@ async function actualizeProducts(arrayUserInp){
 }
   //check tutorials about arrows functions
 btnAddProduct.addEventListener('click',e => {
-  let userInp = document.getElementById("chemistryDropdown").value.toLowerCase()
+  let userInp = document.getElementById("chemistryDropdown").value
   arrayUserInp = addProduct(arrayUserInp,userInp)
   //document.getElementById("input").name =""
   actualizeTP(arrayUserInp)

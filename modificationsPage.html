@@ -25,7 +25,7 @@
 
     <div>
         <h4>Ajouter un TP</h4>
-        <form class="formTP">
+        <form action="/newTPdata.html" method="post" id="formTP">
             <label for="titreTP_form">Titre du TP :</label>
             <input type="text" id="titreTP_form" name="username" required>
 
@@ -83,7 +83,7 @@
         </div>
         <div >
             <div id="displayFormOfSelectedTP" class="resultSelectTP">
-                <form class="formTP">
+                <form id="formTPMODIFY">
                     <pre>
                     <label for="titreTP_formMODIFY">Titre du TP :</label>
                     <input type="text" id="titreTP_formMODIFY" value ="" required>

@@ -3,8 +3,34 @@ divWhereDisplay = document.getElementById("displayFormOfSelectedTP")
 tpNameSelect = document.getElementById("tpNameSelect")
 result =  document.querySelector(".resultSelectTP");
 btnModidfyTP = document.getElementById("btnModifyTP")
+formNewTP = document.getElementById("formTP")
 
+titreAdd = document.getElementById("titreTP_form")
+chemAdd = document.getElementById("chemistryDropdown") //this is really not good coding i think, i use totally different stuff with te same id
+niveauAdd = document.getElementById("niveau_form")
+themeAdd = document.getElementById("theme_form")
+elevePDFAdd = document.getElementById("elevePDF_form")
+laboPDFAdd = document.getElementById("laboPDF_form")
+responsePDFAdd = document.getElementById("responsePDF_form")
 
+let formToSend = {
+    name: "",
+    chemP: [],
+    level:"",
+    theme:""
+};
+
+formNewTP.addEventListener('submit', (event) => {
+    // handle the form data
+    console.log("hey i am submitted")
+    formToSend.name = titreAdd.value
+    formToSend.chemP = chemAdd.value
+    formToSend.level = levelAdd.value
+    formToSend.theme = themeAdd.value
+
+    console.log(formToSend)
+
+});
 
 tpNameSelect.addEventListener("change", (event) => {
     nameOfChoosenTP = event.target.value

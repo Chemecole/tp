@@ -96,19 +96,23 @@
         "instructions":"mettre l'oeuf dans de l'acide nitrique",
         "subject": "chimie",
         "level": ["N6"],
-        "source": "MicroMega",
-        "theme":"B"
+        "theme":"B",
+        "tpEleve":"1.pdf",
+        "tpLabo":"2.pdf",
+        "tpReponse":"R.pdf"
         
       },
       {
         "id":"T002",
         "name": "Oeuf mort",
         "chemP":["éthanol","oeuf"],
-        "instructions":"explosion d'un oeuf",
         "subject": "SVT",
         "level": ["N4","N3"],
-        "source": "Internet",
-        "theme":"A"
+        "theme":"A",
+        "tpEleve":"1.pdf",
+        "tpLabo":"2.pdf",
+        "tpReponse":"R.pdf"
+
       },
         
       {
@@ -117,119 +121,11 @@
         "chemP": ["seringue"],
         "subject": "chimie",
         "level": ["N5"],
-        "source": ["MicroMega"],
-        "theme": ["solide/liquide/gazeux","eau"]
-    },
-        
-      
-      {
-          "id":"T004",
-          "name": "fusion et ébullition de l'eau",
-          "chemP": [],
-          "subject": "chimie",
-          "level": ["N5"],
-          "source": ["MicroMega"],
-          "theme": ["solide/liquide/gazeux","eau"]
-      },
-      {
-          "id":"T005",
-          "name": "test avec sulfate de cuivre anhydre",
-          "chemP": ["acide nitrique"],
-          "subject": "chimie",
-          "level": ["N5"],
-          "source": ["MicroMega"],
-          "theme": ["eau", "test caractéristique"]
-      },
-      {
-          "id":"T006",
-          "name": "les solides mous",
-          "chemP": ["gel coiffant, farine, fécule de mais"],
-          "subject": "chimie",
-          "level": ["N5"],
-          "source": ["MicroMega"],
-          "theme": ["solide/liquide/gazeux"]
-      },
-      {
-          "id":"T007",
-          "name": "le daaaadu mouchoir",
-          "chemP": ["mouchoir"],
-          "subject": "chimie",
-          "level": ["N5"],
-          "source": ["MicroMega"],
-          "theme": ["solide/liquide/gazeux","magique"]
-      },
-      {
-          "id":"T008",
-          "name": "mesurer la masse volumique",
-          "chemP": ["des matériaux"],
-          "subject": "chimie",
-          "level": ["N5","N4"],
-          "source": ["MicroMega"],
-          "theme": ["masse et volume"]
-      },
-      {
-          "id":"T009",
-          "name": "densités de liquides",
-          "chemP": ["mouchoir"],
-          "subject": "chimie",
-          "level": ["N6","N5"],
-          "source": ["MicroMega"],
-          "theme": ["mélanges et dissolutions"]
-      },
-      {
-        "id":"T010",
-        "name": "gaz dissous dans un soda",
-        "chemP": ["soda, eau de chaux"],
-        "subject": "chimie",
-        "level": ["N5"],
-        "source": ["MicroMega"],
-        "theme": ["mélanges et dissolutions", "test caractéristique"]
-      },
-      {
-        "id":"T011",
-        "name": "dissolution du sel et du sable dans l'eau",
-        "chemP": ["sel, sable, sucre"],
-        "subject": "chimie",
-        "level": ["N5"],
-        "source": ["MicroMega"],
-        "theme": ["mélanges et dissolutions"]
-    },
-    {
-      "id":"T012",
-      "name": "échelle de teintes",
-      "chemP": ["sulfate de cuivre","permanganate de potassium","lugol"],
-      "subject": "chimie",
-      "level": ["N2"],
-      "source": ["MicroMega"],
-      "theme": ["j"]
-    },
-    {
-      "id":"T013",
-      "name": "le déoioiiomouchoir",
-      "chemP": ["mouchoir"],
-      "subject": "chimie",
-      "level": ["N5"],
-      "source": ["MicroMega"],
-      "theme": ["solide/liquide/gazeux","magique"]
-  },
-  {
-    "id":"T014",
-    "name": "le défi du mouchoir",
-    "chemP": ["mouchoir"],
-    "subject": "chimie",
-    "level": ["N5"],
-    "source": ["MicroMega"],
-    "theme": ["solide/liquide/gazeux","magique"]
-  },
-  {
-    "id":"T015",
-    "name": "oio",
-    "chemP": ["mouchoir"],
-    "subject": "chimie",
-    "level": ["N5"],
-    "source": ["MicroMega"],
-    "theme": ["solide/liquide/gazeux","magique"]
-  }
+        "theme": ["solide/liquide/gazeux","eau"],
+        "tpEleve":"1.pdf",
+        "tpLabo":"2.pdf",
+        "tpReponse":"R.pdf"
+    }
     ],
 
     "cool":[
@@ -241,7 +137,6 @@
         "chemP": ["éthanol", "oeuf"],
         "subject": ["SVT"],
         "level": ["N5"],
-        "source": ["MicroMega"],
         "theme": "A"
       },
       {
@@ -251,7 +146,6 @@
         "chemP": ["éthanol", "oeuf"],
         "subject": ["SVT"],
         "level": ["N5"],
-        "source": ["MicroMega"],
         "theme": "A"
       },
       {
@@ -261,7 +155,6 @@
         "chemP": ["éthanol", "acide nitrique"],
         "subject": ["SVT"],
         "level": ["N5"],
-        "source": ["MicroMega"],
         "theme": "A"
       }
 

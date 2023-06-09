@@ -54,15 +54,20 @@ window.onload = async function() {
     //dataProducts = recoverDataProducts()
     //dataCool = recoverDataCoolStuff()
     await new Promise(resolve => setTimeout(resolve, 1000));
+    //loadFetch();
     makeDropdown();
     };
+ 
     
+  function loadFetch(){
+
+  console.log("hrllo")
     fetch(url)
       .then(response => response.json())
       .then(data => {
         // Accédez à la catégorie "products"
         const products = data.products;
-        console.log("Category: products");
+        //console.log("Category: products");
         products.forEach(product => {
           const productId = product.id;
           const productName = product.name;
@@ -107,7 +112,7 @@ window.onload = async function() {
         // Gérez les erreurs ici
         console.error(error);
       });
-
+    }
 
  console.log("yoo dataTP", dataTP)
  function makeDropdown(){
@@ -120,3 +125,5 @@ window.onload = async function() {
     //console.log(i)
   }
  }
+
+ //export {dataTP}

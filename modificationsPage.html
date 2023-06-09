@@ -11,14 +11,12 @@
     />
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
     <script defer src="loadJSON.js"></script>
-    <script defer src="scriptModification.js"></script>
-
-   
+    
    
   </head>
-  <body onload="makeList(dataTP);">
+  <body>
 
     <header>
       <a href="homePage.html"> <img src="source\images\homePageButton.png"/></a>
@@ -40,7 +38,21 @@
 
 
             <label for="niveau_form">Niveau :</label>
-            <input type="text" id="niveau_form" name="password" required>
+            <select id="niveau_form" name="input" required multiple>
+                <option value="none" selected disabled hidden>choisis le niveau du TP
+                </option>
+                <option value = "N6">6ème</option>
+                <option value = "N5">5ème</option>
+                <option value = "N4">4ème</option>
+                <option value = "N3">3ème</option>
+                <option value = "N2">Seconde</option>
+                <option value = "N1">Première</option>
+                <option value = "N0">Terminale</option>
+
+
+            
+            </select>
+
 
             <label for="theme_form">Thème :</label>
             <input type="text" id="theme_form" name="password" required>
@@ -61,6 +73,9 @@
 
     <div>
         <h4>Modifier un TP</h4>
+        <p>yoyoyo</p>
+        <button onclick = "makeList()"> modifier un tp</button>
+
         <div>
             <select id="tpNameSelect" name="input" required multiple>
             <option value="none" selected disabled hidden>Choisis le nom de TP
@@ -71,37 +86,51 @@
                 <form class="formTP">
                     <pre>
                     <label for="titreTP_formMODIFY">Titre du TP :</label>
-                    <input type="text" id="titreTP_formMODIFY" name="username" required>
-        
-                    
+                    <input type="text" id="titreTP_formMODIFY" value ="" required>
+                    <p> Niveau du TP actuellement</p>
+                    <p id="niveauActuel_formMODIFY"> </p>
+                    <label for="niveau_formMODIFY">nouveau niveau à chosiir :</label>
+            <select id="niveau_formMODIFY" name="input" required multiple>
+                <option value="none" selected disabled hidden>choisis le niveau du TP
+                </option>
+                <option value = "N6">6ème</option>
+                <option value = "N5">5ème</option>
+                <option value = "N4">4ème</option>
+                <option value = "N3">3ème</option>
+                <option value = "N2">Seconde</option>
+                <option value = "N1">Première</option>
+                <option value = "N0">Terminale</option>
+
+
             
-        
-        
-                    <label for="niveau_formMODIFY">Niveau :</label>
-                    <input type="text" id="niveau_formMODIFY" name="password" required>
+            </select>
         
                     <label for="theme_formMODIFY">Thème :</label>
-                    <input type="text" id="theme_formMODIFY" name="password" required>
+                    <input type="text" id="theme_formMODIFY" value ="" required>
         
                     <label for="elevePDF_formMODIFY">TP élève:</label>
-                    <input type="file" id="elevePDF_formMODIFY" name="upload" accept="application/pdf" />
+                    <input type="file" id="elevePDF_formMODIFY"value ="" accept="application/pdf" />
         
                     <label for="laboPDF_formMODIFY">TP Laborantin:</label>
-                    <input type="file" id="laboPDF_formMODIFY" name="upload" accept="application/pdf" />
+                    <input type="file" id="laboPDF_formMODIFY" value ="" accept="application/pdf" />
         
                     <label for="reponsePDF_formMODIFY"> réponses:</label>
-                    <input type="file" id="reponsePDF_formMODIFY" name="upload" accept="application/pdf" />
+                    <input type="file" id="reponsePDF_formMODIFY" value ="" accept="application/pdf" />
         
                     <!-- Ajoutez ici les autres champs pour les valeurs du fichier JSON -->
                     <input type="submit" value="Enregistrer">
                 </pre>
                 </form>
+                
             </div>
 
         </div>
 
     </div>
-    
+    <script defer src="scriptModification.js"></script>
+
+   
 </body>
 </html>
+
 

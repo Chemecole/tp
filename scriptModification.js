@@ -1,8 +1,11 @@
 //import { dataTP } from "./loadJSON";
 
-//const fs = require("fs");
+//import * as fs from "fs";
+const fs = require('fs');
 
-divWhereDisplay = document.getElementById("displayFormOfSelectedTP")
+//var fs = require("fs");
+
+//divWhereDisplay = document.getElementById("displayFormOfSelectedTP")
 tpNameSelect = document.getElementById("tpNameSelect")
 result =  document.querySelector(".resultSelectTP");
 btnModidfyTP = document.getElementById("btnModifyTP")
@@ -62,7 +65,7 @@ btnAddTP.addEventListener("click",function(e){
     formToSend.theme = themeAdd.value
     tpJSON = JSON.stringify(formToSend,null,2)
 })
-/*fs.writeFile("chemistry.json", tpJSON, (error) => {
+fs.writeFile("chemistry.json", tpJSON, (error) => {
     // throwing the error
     // in case of a writing problem
     if (error) {
@@ -73,7 +76,7 @@ btnAddTP.addEventListener("click",function(e){
     }
   
     console.log("data.json written correctly");
-  });*/
+  });
 
 
 /*formNewTP.addEventListener('submit', (event) => {

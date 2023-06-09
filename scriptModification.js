@@ -65,9 +65,12 @@ btnAddTP.addEventListener("click",function(e){
     formToSend.theme = themeAdd.value
     tpJSON = JSON.stringify(formToSend,null,2)
 })
-fs.writeFile("chemistry.json", tpJSON, (error) => {
+
+
+fs.writeFile("https://github.com/Chemecole/tp/blob/main/chemistry.json", tpJSON, (error) => {
     // throwing the error
     // in case of a writing problem
+    console.log(tpJSON)
     if (error) {
       // logging the error
       console.error(error);

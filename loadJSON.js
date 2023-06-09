@@ -59,9 +59,7 @@ window.onload = async function() {
     };
  
     
-  function loadFetch(){
-
-  console.log("hrllo")
+function loadFetch(){
     fetch(url)
       .then(response => response.json())
       .then(data => {

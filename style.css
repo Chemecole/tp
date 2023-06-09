@@ -227,6 +227,20 @@ header{
   animation: fadeIn 0.4s;
 }
 
+.forms{
+  display:block;
+  background-color: white;
+  border-radius: 4px;
+  padding: 8px;
+  width: 50%;
+
+}
+
+/*ici c'est pas sur si label ca va pas déranger avec d'autres pages que pagesmodicfications*/
+label{
+  display:block;
+}
+
 
 @keyframes fadeIn {
 from {

@@ -23,14 +23,14 @@
       <h1>Modifications</h1>
     </header>
 
-    <div>
+    <div class="forms">
         <h4>Ajouter un TP</h4>
-        <form action="/newTPdata.html" method="post" id="formTP">
+        <form method="post" id="formTP">
             <label for="titreTP_form">Titre du TP :</label>
             <input type="text" id="titreTP_form" name="username" required>
 
             
-            <select id="chemistryDropdown" name="input" required multiple>
+            <select id="chemForm" name="input" required multiple>
                 <option value="none" selected disabled hidden>Choisis un élément chimique
                 
                 </option></select>
@@ -67,11 +67,12 @@
             <input type="file" id="reponsePDF_form" name="upload" accept="application/pdf" />
 
             <!-- Ajoutez ici les autres champs pour les valeurs du fichier JSON -->
-            <input type="submit" value="Enregistrer">
+            
+            <button type="button" id="buttonSubmit"> Enregistrer</button>
         </form>
     </div>
 
-    <div>
+    <div class="forms">
         <h4>Modifier un TP</h4>
         <p>yoyoyo</p>
         <button onclick = "makeList()"> modifier un tp</button>
@@ -118,7 +119,7 @@
                     <input type="file" id="reponsePDF_formMODIFY" value ="" accept="application/pdf" />
         
                     <!-- Ajoutez ici les autres champs pour les valeurs du fichier JSON -->
-                    <input type="submit" value="Enregistrer">
+                    
                 </pre>
                 </form>
                 

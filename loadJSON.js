@@ -2,12 +2,11 @@ window.dataTP
 window.dataProducts
 dataTP = []
 dataProducts = []
-//export {dataTP}
 
 const url ="https://chemecole.github.io/tp/chemistry.json"
 
-dropdown = document.getElementById('chemistryDropdown');
-dropdown.selectedIndex = 0;
+//this page is only to put in arrays the data from json
+//keep your makeDropdown on others scripts!!!!
 
 class Product {
     constructor(id, name, strpic, location, quantity)
@@ -48,24 +47,18 @@ class Product {
   }
 
 
-window.onload = async function() {
-  
-    //tp = recoverDataTP()
-    //dataProducts = recoverDataProducts()
-    //dataCool = recoverDataCoolStuff()
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    //loadFetch();
-    makeDropdown();
-    };
- 
+
     
-function loadFetch(){
+async function  loadFetch(){
     fetch(url)
-      .then(response => response.json())
-      .then(data => {
+      //.then(response => response.json())
+
+      .then( async (response) => {
+        let data = await response.json()
+  
+      //.then(data => {
         // Accédez à la catégorie "products"
         const products = data.products;
-        //console.log("Category: products");
         products.forEach(product => {
           const productId = product.id;
           const productName = product.name;
@@ -74,8 +67,7 @@ function loadFetch(){
           const productQuantity = product.quantity;
           prod = new Product(productId, productName, productStrpic, productLocation, productQuantity)
           dataProducts.push(prod)
-          //console.log(dataProducts)
-        
+     
         });
     
         // Accédez à la catégorie "tp"
@@ -111,17 +103,3 @@ function loadFetch(){
         console.error(error);
       });
     }
-
- console.log("yoo dataTP", dataTP)
- function makeDropdown(){
-  let option;     
-  for (let i = 0; i < dataProducts.length; i++) {
-    option = document.createElement('option');
-    option.value = dataProducts[i].name;
-    option.text = dataProducts[i].name;
-    dropdown.appendChild(option);
-    //console.log(i)
-  }
- }
-
- //export {dataTP}

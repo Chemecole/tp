@@ -6,6 +6,14 @@ let defaultOption = document.createElement('option');
 let arrayUserInp = [];
 let btnAddProduct = document.getElementById('btnAddProduct')
 
+dropdown = document.getElementById('chemistryDropdown');
+dropdown.selectedIndex = 0;
+
+window.onload = async function() { 
+  loadFetch();
+  await new Promise(resolve => setTimeout(resolve,500));
+  makeDropdown(dataProducts,dropdown);
+  };
 
 
 //const url ="https://chemecole.github.io/tp/chemistry.json"
@@ -187,4 +195,16 @@ actualizeCoolStuff(arrayUserInp)
 //buttonClicked.parentElement.remove()
   
 }
+
+
+function makeDropdown(tableau,menu){
+  let option;   
+  for (let i = 0; i < tableau.length; i++) {
+    option = document.createElement('option');
+    option.value = tableau[i].name;
+    option.text = tableau[i].name;
+    menu.appendChild(option);
+  }
+ }
+
 

@@ -1,5 +1,11 @@
 
 
+window.onload = async function() { 
+  loadFetch();
+  await new Promise(resolve => setTimeout(resolve,500));
+  
+  };
+
 
         function change() {
           //on récupere à chaque click l'ensemble des coches qui sont clickés
@@ -107,7 +113,6 @@
             hideOrShow(filters.themeF, "theme");
 
             for (var i = 0; i < dataTP.length; i++) {
-              console.log(filters.subjectF, filters)
             if(filters.subjectF =='' && filters.levelF == '' && filters.sourceF == '' && filters.themeF ==''){
               document.getElementById("result").innerHTML=" "
             }
@@ -158,7 +163,6 @@
           function showLocation(e){
 
             let oneTPchemP = e.textContent.split(","); 
-            //console.log(e)
             var tooltip= document.createElement('div')
             tooltip.id="tooltip-text"
             for(i=0; i<oneTPchemP.length;i++){

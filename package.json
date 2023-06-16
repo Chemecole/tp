@@ -1,0 +1,23 @@
+{
+  "name": "chemistry.json",
+  "version": "1.0.0",
+  "description": "a very great database",
+  "main": "loadJSON.js",
+  "devDependencies": {},
+  "scripts": {
+    "start":"node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chemecole/tp.git"
+  },
+  "keywords": [
+    "chemicals"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chemecole/tp/issues"
+  },
+  "homepage": "https://github.com/Chemecole/tp#readme"
+}

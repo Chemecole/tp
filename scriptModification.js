@@ -1,9 +1,10 @@
+//import fs from 'fs';
+
+//import { writeFile } from 'fs';
 //import { dataTP } from "./loadJSON";
 
 //import * as fs from "fs";
-const fs = require('fs');
-
-//var fs = require("fs");
+//const fs = require('fs');
 
 //divWhereDisplay = document.getElementById("displayFormOfSelectedTP")
 tpNameSelect = document.getElementById("tpNameSelect")
@@ -67,7 +68,7 @@ btnAddTP.addEventListener("click",function(e){
 })
 
 
-fs.writeFile("https://github.com/Chemecole/tp/blob/main/chemistry.json", tpJSON, (error) => {
+writeFile("https://github.com/Chemecole/tp/blob/main/chemistry.json", tpJSON, (error) => {
     // throwing the error
     // in case of a writing problem
     console.log(tpJSON)

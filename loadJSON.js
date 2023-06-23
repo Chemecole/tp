@@ -3,7 +3,9 @@ window.dataProducts
 dataTP = []
 dataProducts = []
 
-const url ="https://chemecole.github.io/tp/chemistry.json"
+//const url ="https://chemecole.github.io/tp/chemistry.json"
+const urlProduct = "https://chemecole.onrender.com/products"
+const urlTP = "https://chemecole.onrender.com/tp"
 
 //this page is only to put in arrays the data from json
 //keep your makeDropdown on others scripts!!!!
@@ -46,10 +48,67 @@ class Product {
   
   }
 
-
-
-    
 async function  loadFetch(){
+let promiseP = fetch(urlProduct)
+promiseP.then(response => response.json())
+  .then(json => {
+    console.log(json);
+    const products = json;
+        products.forEach(product => {
+          const productId = product.id;
+          const productName = product.name;
+          const productStrpic = product.strpic;
+          const productLocation = product.location;
+          const productQuantity = product.quantity;
+          prod = new Product(productId, productName, productStrpic, productLocation, productQuantity)
+          dataProducts.push(prod)
+     
+        });
+  }
+  )
+  promiseP.catch((err) => console.log(err));
+
+
+  let promiseT = fetch(urlTP)
+  promiseT.then(response => response.json())
+  .then(json => {
+    console.log("hello");
+    const tp = json;
+    tp.forEach(tpItem => {
+      const tpId = tpItem.id;
+      const tpName = tpItem.name;
+      const tpChemP = tpItem.chemP;
+      const tpInstructions = tpItem.instructions;
+      const tpSubject = tpItem.subject;
+      const tpLevel = tpItem.level;
+      const tpSource = tpItem.source;
+      const tpTheme = tpItem.theme;
+  
+      experiment = new Experiment(tpId,tpName,tpChemP,tpInstructions,tpSubject,tpLevel,tpSource,tpTheme)
+      dataTP.push(experiment)
+     
+        });
+  }
+  )
+  promiseT.catch((err) => console.log(err));
+
+
+}
+
+/*
+async function  loadFetch(){
+  let responseProd = await fetch(urlProduct)
+  let jsonProd = await responseProd.json()
+  let responseTP = await fetch(urlTP)
+  let jsonTP = await responseTP.json()
+  data = [jsonProd,jsonTP]
+  return data
+
+}*
+
+
+
+/*async function  loadFetch(){
     fetch(url)
       //.then(response => response.json())
 
@@ -103,3 +162,4 @@ async function  loadFetch(){
         console.error(error);
       });
     }
+*/

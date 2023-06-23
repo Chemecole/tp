@@ -90,7 +90,7 @@
 
     "tp":[
       {
-        "id":"T001",
+        "id":"T1",
         "name": "coquille d'oeuf",
         "chemP":["acide nitrique","oeuf"],
         "instructions":"mettre l'oeuf dans de l'acide nitrique",
@@ -103,7 +103,7 @@
         
       },
       {
-        "id":"T002",
+        "id":"T2",
         "name": "Oeuf mort",
         "chemP":["éthanol","oeuf"],
         "subject": "SVT",
@@ -116,7 +116,7 @@
       },
         
       {
-        "id":"T003",
+        "id":"T3",
         "name": "pousser le piston d'une seringue",
         "chemP": ["seringue"],
         "subject": "chimie",
@@ -149,7 +149,7 @@
         "theme": "A"
       },
       {
-        "id":"C2",
+        "id":"C3",
         "name":"this should be ethanol and acide nitrique!",
         "imageOrVideo":"link",
         "chemP": ["éthanol", "acide nitrique"],

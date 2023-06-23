@@ -1,5 +1,4 @@
 
-
 //divWhereDisplay = document.getElementById("displayFormOfSelectedTP")
 tpNameSelect = document.getElementById("tpNameSelect")
 //result =  document.querySelector(".resultSelectTP");
@@ -186,7 +185,15 @@ function generateId(database) {
   }
   
   function checkId(database, id) {
-    return database.some(item => item.id === id);
+    let idAvailable = true
+    for (let i = 0; i < database.length; i++) {
+        const element = database[i];
+        if (id == element){
+            idAvailable = false
+        }
+       
+    }
+    return idAvailable
   }
 
 

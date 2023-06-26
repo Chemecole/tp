@@ -23,15 +23,16 @@ class Product {
   }
   
   class Experiment{
-    constructor(id, name, chemP, instructions, subject, level, source, theme){
+    constructor(id, name, chemP, subject, level,theme,tpEleve,tpLabo,tpReponse){
       this.id =id;
       this.name = name;
       this.chemP = chemP;
-      this.instructions = instructions;
       this.subject = subject;
       this.level = level;
-      this.source = source;
       this.theme = theme;
+      this.tpEleve= tpEleve;
+      this.tpLabo = tpLabo;
+      this.tpReponse = tpReponse;
     }
   }
   class CoolStuff{
@@ -76,16 +77,18 @@ promiseP.then(response => response.json())
     console.log("hello");
     const tp = json;
     tp.forEach(tpItem => {
-      const tpId = tpItem.id;
-      const tpName = tpItem.name;
-      const tpChemP = tpItem.chemP;
-      const tpInstructions = tpItem.instructions;
-      const tpSubject = tpItem.subject;
-      const tpLevel = tpItem.level;
-      const tpSource = tpItem.source;
-      const tpTheme = tpItem.theme;
-  
-      experiment = new Experiment(tpId,tpName,tpChemP,tpInstructions,tpSubject,tpLevel,tpSource,tpTheme)
+      tpId = tpItem.id;
+      tpName = tpItem.name;
+      tpChemP = tpItem.chemP;
+      //const tpInstructions = tpItem.instructions;
+      tpSubject = tpItem.subject;
+      tpLevel = tpItem.level;
+      //const tpSource = tpItem.source;
+      tpTheme = tpItem.theme;
+      tpEleve= tpItem.tpEleve;
+      tpLabo = tpItem.tpLabo;
+      tpReponse = tpItem.tpReponse;
+      experiment = new Experiment(tpId,tpName,tpChemP,tpSubject,tpLevel,tpTheme,tpEleve,tpLabo,tpReponse)
       dataTP.push(experiment)
      
         });

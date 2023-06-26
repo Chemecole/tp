@@ -7,6 +7,7 @@ const localUrl = "./chemistry.json"
 //bon ça c'est la référence HTML de toutes les parties du formulaire "ajouter un TP"
 formNewTP = document.getElementById("formTP")
 titreAdd = document.getElementById("titreTP_form")
+titreAdd.setAttribute('required','ce champs etst obligatoire sacrebvley');
 chemAdd = document.getElementById("chemForm")
 niveauAdd = document.getElementById("niveau_form")
 themeAdd = document.getElementById("theme_form")
@@ -20,6 +21,7 @@ buttonSubmit = document.getElementById("buttonSubmit")
 //ici c'est la référence HTML de toutes les parties du formulaire "modifier/supprimer un TP"
 titre = document.getElementById("titreTP_formMODIFY")
 niveau = document.getElementById("niveau_formMODIFY")
+titre.setAttribute('required','ce cham');
 niveauActuel = document.getElementById("niveauActuel_formMODIFY")
 theme = document.getElementById("theme_formMODIFY")
 elevePDF = document.getElementById("elevePDF_formMODIFY")
@@ -70,9 +72,10 @@ buttonSubmit.addEventListener('click', function(e) {
       chemP: addMultipleSelection(chemAdd),
       level: addMultipleSelection(niveauAdd),
       theme: themeAdd.value
-      //à faire, gérer les pdfs
-    };
+      //à faire, ajouter condition pour que tout doit etre remplie
 
+      //à faire, gérer les pdfs de google drive chemecole
+    };
     //ici on convertit les réponses par l'utilisateur dans le formulaire ADD en format JSON
     const tpJSON = JSON.stringify(formData, null, 2);
     fetch(apiUrl, {
@@ -95,6 +98,8 @@ buttonSubmit.addEventListener('click', function(e) {
     .catch(error => {
         console.error('Une erreur s\'est produite lors de l\'envoi de la requête.', error);
     });
+
+    //window.location.reload()
 });
 
 //const tpDELJSON = JSON.stringify(formData, null, 2);

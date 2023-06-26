@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    <title>Modifications</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+    <script defer src="loadJSON.js"></script>
+    
+   
+  </head>
+  <body>
+
+    <header>
+      <a href="homePage.html"> <img src="source\images\homePageButton.png"/></a>
+      <h1>Modifications Produit</h1>
+    </header>
+
+    <div class="forms">
+        <h4>Ajouter un Produit</h4>
+        <form method="post" id="formProduits">
+            <label for="name_addProduct">Nom Produit :</label>
+            <input type="text" id="name_addProduct" name="username" required>
+            <label for="loc_addProduct">Emplacement :</label>
+            <input type="text" id="loc_addProduct" value ="" required>
+            <label for="quantity_addProduct">Quantité (pas la peine d'être précis; juste mettre zéro si y'en a plus) :</label>
+            <input type="text" id="quantity_addProduct" value ="" required>
+
+            <label for="img_addProduct">Image du produit:</label>
+            <input type="file" id="img_addProduct" name="upload" accept="application/img" />
+
+            <label for="laboPDF_formProduit">Présentation labo:</label>
+            <input type="file" id="laboPDF_formProduit" name="upload" accept="application/pdf" />
+
+            <label for="reponsePDF_formProduit"> Présentation élève</label>
+            <input type="file" id="reponsePDF_formProduit" name="upload" accept="application/pdf" />
+
+            <!-- Ajoutez ici les autres champs pour les valeurs du fichier JSON -->
+            
+            <button type="button" id="buttonSubmitProduct"> Enregistrer</button>
+        </form>
+    </div>
+
+    <div class="forms">
+        <h4>Modifier un Produit</h4>
+        <p>yoyoyo</p>
+        <button> modifier un produit</button>
+        <button id="btnDeleteProduct">Supprimer produit</button>
+
+
+        <div>
+            <select id="ProductNameSelect" name="input" required multiple>
+            <option value="none" selected disabled hidden>Choisis le nom du produit
+            </option></select>
+        </div>
+        <div >
+            <div id="displayFormOfSelectedProduit" class="resultSelectProduit">
+                <form id="formProduitMODIFY">
+                    <pre>
+                    <label for="name_modifyProduct">nom du produit :</label>
+                    <input type="text" id="name_modifyProduct" value ="" required>
+
+                    <label for="loc_modifyProduct">emplacement du produit :</label>
+                    <input type="text" id="loc_modifyProduct" value ="" required>
+                    <label for="quantity_modifyProduct">quantité du produit :</label>
+                    <input type="text" id="quantity_modifyProduct" value ="" required>
+                   
+                    
+        
+                    <!-- Ajoutez ici les autres champs pour les valeurs du fichier JSON -->
+                    
+                </pre>
+                </form>
+
+                <p id="id_modifyProduct"> </p>
+                
+            </div>
+
+        </div>
+
+    </div>
+    <script defer src="scriptModificationProduit.js"></script>
+
+   
+</body>
+</html>
+
+

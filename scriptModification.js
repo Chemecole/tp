@@ -1,12 +1,13 @@
 
-//divWhereDisplay = document.getElementById("displayFormOfSelectedTP")
-tpNameSelect = document.getElementById("tpNameSelect")
-//result =  document.querySelector(".resultSelectTP");
-btnAddTP = document.getElementById("buttonSubmit")
-formNewTP = document.getElementById("formTP")
+//url pour la base de donnée qu'on utilise, en ligne
+const apiUrl = 'https://chemecole.onrender.com/tp';
+const localUrl = "./chemistry.json"
 
+
+//bon ça c'est la référence HTML de toutes les parties du formulaire "ajouter un TP"
+formNewTP = document.getElementById("formTP")
 titreAdd = document.getElementById("titreTP_form")
-chemAdd = document.getElementById("chemForm") //this is really not good coding i think, i use totally different stuff with te same id
+chemAdd = document.getElementById("chemForm")
 niveauAdd = document.getElementById("niveau_form")
 themeAdd = document.getElementById("theme_form")
 elevePDFAdd = document.getElementById("elevePDF_form")
@@ -14,84 +15,86 @@ laboPDFAdd = document.getElementById("laboPDF_form")
 responsePDFAdd = document.getElementById("responsePDF_form")
 chemToSelectAdd = document.getElementById("chemForm")
 
-tpNameSelect= document.getElementById("tpNameSelect")
-const apiUrl = 'https://chemecole.onrender.com/tp';
+buttonSubmit = document.getElementById("buttonSubmit")
 
-window.onload = async function() {    
+//ici c'est la référence HTML de toutes les parties du formulaire "modifier/supprimer un TP"
+titre = document.getElementById("titreTP_formMODIFY")
+niveau = document.getElementById("niveau_formMODIFY")
+niveauActuel = document.getElementById("niveauActuel_formMODIFY")
+theme = document.getElementById("theme_formMODIFY")
+elevePDF = document.getElementById("elevePDF_formMODIFY")
+laboPDF = document.getElementById("laboPDF_formMODIFY")
+responsePDF = document.getElementById("responsePDF_formMODIFY")
+//le idTP ne fait pas partie du formulaire. c'est un paragraphe invisible
+// (bon, c'est pas spécialement secret, juste pas intéressant pour l'utilisateur )
+//donc un paragraphe invisible dans lequel on met la valeur de l'id qui a été généré automatiquement lors de la méthode POST
+//(lors de l'ajout de TPs)
+idTP = document.getElementById("idTP_formMODIFY")
+//tpNameSelect, dans la partie modifier/supprimer, c'est le menu déroulant depuis lequel tu choisis le nom du TP que tu veux changer
+tpNameSelect= document.getElementById("tpNameSelect")
+
+
+
+
+window.onload = async function() {
+    //on récupére les données 
     loadFetch();   
     await new Promise(resolve => setTimeout(resolve,500));
+    //on fait le menu déroulant des produits chimiques dans la partie ADD
     makeDropdown(dataProducts,chemToSelectAdd);
+    //on fait le menu déroulant des produits chimiques dans la partie MODIFy
+    // à faire
+    //on fait le menu déroulant (par nom) des TPs disponibles
     makeListOfTp(dataTP, tpNameSelect)
     };
 
-let formToSend = {
-    name: "",
-    chemP: [],
-    level:[],
-    theme:""
-};
-
+//permet de retourner un tableau lorsque l'on sélectionne plusieurs valeurs.
+//autrement ça renvoyait seulement la dernière valeur cliquée si je me souviens bien
 function addMultipleSelection(menuDropdown){
     var selected = [];
-
     for (var option of menuDropdown.options)
     {
         if (option.selected) {
             selected.push(option.value);
         }
     }
-
     return selected
 }
 
-let tpJSON
-
-/*
-btnAddTP.addEventListener("click",function(e){
-    console.log("chlicjke")
-    e.preventDefault();
-    console.log(titreAdd.value)
-    console.log(formToSend)
-    formToSend.name = titreAdd.value
-    
-    formToSend.chemP = addMultipleSelection(chemAdd)
-    
-    formToSend.level = addMultipleSelection(niveauAdd)
-    formToSend.theme = themeAdd.value
-    tpJSON = JSON.stringify(formToSend,null,2)
-})
-*/
-
-btnAddTP.addEventListener('click', function(e) {
-    e.preventDefault();
-  
+//donc quand on clique sur "enregistrer" dans la partie ajouter un TP 
+buttonSubmit.addEventListener('click', function(e) {
+    e.preventDefault(); 
     const formData = {
+      //id: generateId(dataTP) <- pas besoin de ça car l'id est généré automatiquement
       name: titreAdd.value,
       chemP: addMultipleSelection(chemAdd),
       level: addMultipleSelection(niveauAdd),
       theme: themeAdd.value
+      //à faire, gérer les pdfs
     };
 
+    //ici on convertit les réponses par l'utilisateur dans le formulaire ADD en format JSON
     const tpJSON = JSON.stringify(formData, null, 2);
-
-  fetch(apiUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: tpJSON
-  })
-  .then(response => {
-    if (response.ok) {
-      console.log('Données ajoutées avec succès !');
-      // Réinitialisez le formulaire ou effectuez toute autre action nécessaire
-    } else {
-      console.error('Une erreur s\'est produite lors de l\'ajout des données.');
-    }
-  })
-  .catch(error => {
-    console.error('Une erreur s\'est produite lors de l\'envoi de la requête.', error);
-  });
+    fetch(apiUrl, {
+        method: 'POST',
+        //les headers permettent de rajouter des informations sur le message (qu'on poste dans ce cas-là)
+        headers: {
+            //Accept : text/html pour dire qu'on accepte de l'html je crois
+        'Content-Type': 'application/json'
+        },
+        //donc pas vraiment besoin d'un corps quand on fait un GET, mais quand on fait un POST, c'est le body qu'on envoie
+        body: tpJSON // donc ici on envoie notre formulaire sous forme JSON
+    })
+    .then(response => {
+        if (response.ok) {
+        console.log('Données ajoutées avec succès !');
+        } else {
+        console.error('Une erreur s\'est produite lors de l\'ajout des données.');
+        }
+    })
+    .catch(error => {
+        console.error('Une erreur s\'est produite lors de l\'envoi de la requête.', error);
+    });
 });
 
 //const tpDELJSON = JSON.stringify(formData, null, 2);
@@ -100,11 +103,10 @@ btnDeleteTP.addEventListener('click', function(e) {
     e.preventDefault();
   
     const selectedIndex = tpNameSelect.selectedIndex; // Récupérer l'index de l'élément sélectionné dans le menu déroulant
-  const tpId = selectedIndex - 1; // Ajouter 1 à l'index pour correspondre à l'ID dans la base de données
 
     const tpName = tpNameSelect.value; // Récupérer le nom du TP à supprimer
   console.log(tpName)
-    fetch(`${apiUrl}/${tpId}`, {
+    fetch(`${apiUrl}/${idTP.innerHTML}`, {
       method: 'DELETE',
 
       headers: {
@@ -131,20 +133,6 @@ btnDeleteTP.addEventListener('click', function(e) {
     });
   });
  
-  
-/*formNewTP.addEventListener('submit', (event) => {
-    // handle the form data
-    console.log("hey i am submitted")
-    formToSend.name = titreAdd.value
-    formToSend.chemP = chemAdd.value
-    formToSend.level = levelAdd.value
-    formToSend.theme = themeAdd.value
-
-    console.log(formToSend)
-    event.preventDefault()
-
-});*/
-
 
 tpNameSelect.addEventListener("change", (event) => {
     nameOfChoosenTP = event.target.value
@@ -152,21 +140,18 @@ tpNameSelect.addEventListener("change", (event) => {
   });
 
 
+
+   
+//cette fonction, permet de d'auto-remplir, une fois qu'on a choisit le nom du TP qu'on veut modifier, les données actuelles du TP
 function createFilledForm(tableau,choosenTP){
     for (let i = 0; i < tableau.length; i++){
         if(tableau[i].name == choosenTP){
-            titre = document.getElementById("titreTP_formMODIFY")
-            niveau = document.getElementById("niveau_formMODIFY")
-            niveau = document.getElementById("niveau_formMODIFY")
-            niveauActuel = document.getElementById("niveauActuel_formMODIFY")
-            theme = document.getElementById("theme_formMODIFY")
-            elevePDF = document.getElementById("elevePDF_formMODIFY")
-            laboPDF = document.getElementById("laboPDF_formMODIFY")
-            responsePDF = document.getElementById("responsePDF_formMODIFY")
             titre.value = tableau[i].name
             niveau.value = tableau[i].level
             niveauActuel.innerHTML = tableau[i].level
             theme.value = tableau[i].theme
+            idTP.innerHTML = tableau[i].id
+            //à faire
             /*elevePDF.value = tableau[i].elevePDF
             laboPDF.value = tableau[i].laboPDF
             responsePDF.value = tableau[i].responsePDF*/
@@ -176,27 +161,10 @@ function createFilledForm(tableau,choosenTP){
 
 }
 
-//generated by chatGPT
-function generateId(database) {
-    const idPrefix = 'T';
-    const idNumber = database.length + 1;
-    const generatedId = idPrefix + idNumber;
-    return generatedId;
-  }
-  
-  function checkId(database, id) {
-    let idAvailable = true
-    for (let i = 0; i < database.length; i++) {
-        const element = database[i];
-        if (id == element){
-            idAvailable = false
-        }
-       
-    }
-    return idAvailable
-  }
 
-
+//aussi je sais pas pourquoi, mais c'est deux fonctions, makeDropdown et make List of TP, ça bugait si je mettais pas en fin de code
+//bon ça je sais pas pourquoi je l'ai pas sur loadJSON mais si ça marche, on ne va pas se plaindre
+//ça permet de faire de le menu déroulant des noms de produits chimiques
 function makeDropdown(tableau,menu){
     let option;   
     for (let i = 0; i < tableau.length; i++) {
@@ -207,41 +175,16 @@ function makeDropdown(tableau,menu){
     }
    }
 
-
-
-
+   //et ça je sais pas pourquoi c'est async mais bon si ça marche, on ne va pas se plaindre
+   //ça permet de faire le menu déroulant des noms de tps
 async function makeListOfTp(tableau,whereToMakeList){
-
     let option;   
-    for (let i = 0; i < tableau.length; i++) {
-        
+    for (let i = 0; i < tableau.length; i++) { 
       option = document.createElement('option');
       option.value = tableau[i].name;
       option.text = tableau[i].name;  
       whereToMakeList.appendChild(option);
     }
    }
-
-
-   function displayTPtoModify(tableau){
-       
-        for (let i = 0; i < tableau.length; i++) {
-            option = document.createElement('option');
-            option.value = tableau[i].name;
-            option.text = tableau[i].name;  
-            document.getElementById("tpNameSelect").appendChild(option);
-          }
-
-    
-   }
-
-   /*window.onload = async function() {  
-    };*/
-
- 
-
-
-
-   
    
    

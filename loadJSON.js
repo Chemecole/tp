@@ -68,7 +68,8 @@ promiseP.then(response => response.json())
   )
   promiseP.catch((err) => console.log(err));
 
-
+//possiblement rajouter un await et un throw error devant le fetch?
+//bon si jamais y'a un bug, là ça marche sans
   let promiseT = fetch(urlTP)
   promiseT.then(response => response.json())
   .then(json => {

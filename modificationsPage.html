@@ -27,7 +27,7 @@
         <h4>Ajouter un TP</h4>
         <form method="post" id="formTP">
             <label for="titreTP_form">Titre du TP :</label>
-            <input type="text" id="titreTP_form" name="username" required>
+            <input type="text" id="titreTP_form" required/>
 
             
             <select id="chemForm" name="input" required multiple>
@@ -66,9 +66,9 @@
             <label for="reponsePDF_form"> réponses:</label>
             <input type="file" id="reponsePDF_form" name="upload" accept="application/pdf" />
 
-            <!-- Ajoutez ici les autres champs pour les valeurs du fichier JSON -->
+            <!-- ça fon,ctionne aussi en type = "button"-->
             
-            <button type="button" id="buttonSubmit"> Enregistrer</button>
+            <button type="submit" id="buttonSubmit"> Enregistrer</button>
         </form>
     </div>
 

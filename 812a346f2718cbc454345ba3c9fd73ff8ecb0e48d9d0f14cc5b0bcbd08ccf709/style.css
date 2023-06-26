@@ -1,0 +1,294 @@
+#chemistryDropdown{
+  display:block;
+  
+}
+
+#input{
+  height:50px;
+}
+#btnAddProduct{
+  width:60%;
+}
+
+.oneSelectedProduct img{
+  width: 100px;
+  position: relative;
+  display: block;
+  margin: auto;
+}
+
+.oneSelectedProduct p{
+  font-size:12px;
+}
+
+.oneSelectedProduct h5{
+  text-align: center;
+}
+.oneSelectedProduct{
+  display:inline-block;
+  border: 3px solid black;
+  border-radius: 5px;
+  margin:10px;
+  padding:5px;
+  width:45%;
+  padding:10px;
+  height:200px;
+ vertical-align: bottom;
+}
+
+
+.oneSelectedProduct button{
+  background-image:url('source/images/poubelle.png');
+  background-size: 20px 20px;
+  background-repeat:no-repeat;
+  background-position:center;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  margin-right: -20px;
+  float: right;
+  margin-top: -18px;
+  
+
+}
+
+.oneSelectedProduct button:hover{
+
+    background-color:rgb(212, 97, 97); 
+  
+}
+
+
+img{
+
+  position: center;
+
+}
+
+* {
+  padding: 5px;
+  margin: 5px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #f4c531;
+}
+
+header{
+  background-color: black;
+  color: rgb(244, 197, 49);
+  display:flex;
+  align-items:center;
+}
+
+#title{
+  background-color: black;
+  color: rgb(244, 197, 49);
+  display:block;
+}
+
+
+header img{
+  width:100px;
+
+  margin:0px;
+}
+
+header h1{
+  margin-left:20%;
+  padding-top:20px;
+}
+section{
+  background-color:white;
+  border-radius:5px;
+  box-shadow: 10px 10px 8px 1px rgb(114 71 6 / 20%);
+  text-align: justify;
+
+}
+
+
+h2{
+  text-align:center;
+}
+
+h1{
+  text-align:center;
+}
+
+#container{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+#introExplications{
+  grid-column: 1 /span  2;
+  grid-row: 1;
+  
+}
+#rechercheSection{
+  grid-column: 1/2;
+  grid-row: 2/ 5;
+}
+
+#modificationsExplications{
+  grid-column: 2/2;
+  grid-row: 2 / 5;
+}
+
+
+#diversExplications{
+  grid-column: 2/2;
+  grid-row: 5 / 5;
+}
+
+
+#containerTP{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-gap: 10px;
+  border-color:red;
+  border-width: 5px;
+}
+
+#addTP{
+  grid-column: 1;
+  grid-row:2;
+  background-color: white;
+ 
+}
+
+#modifyTP{
+  grid-column: 2;
+  grid-row:2;
+
+  background-color:white;
+  
+
+}
+
+#container2{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  
+  grid-template-rows: auto auto 1fr 1fr 1fr auto auto;
+  grid-gap: 10px;
+  height: calc(100vh - 10px);
+}
+
+.tableauModify{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  
+  grid-gap: 10px;
+ 
+}
+
+.leftColumn{
+ grid-column: 1
+}
+.rightColumn{
+grid-column: 2
+}
+header{
+  grid-column: 1 /span  2;
+  grid-row: 1;
+
+}
+
+#chemistryDropdown{
+  grid-column: 1 ;
+  grid-row:2;
+
+}
+
+.section1{
+  grid-column: 1 ;
+  grid-row:3;
+ 
+}
+
+.section2{
+  grid-column: 2 ;
+  grid-row:3;
+}
+
+.section3{
+  grid-column: 2;
+  grid-row:4;
+}
+
+
+
+/* RECHERCHE PAR PRODUIT */
+
+.oneTP{
+  display:inline-block;
+  border: 3px solid black;
+  border-radius: 5px;
+  width:25%;
+  height:300px;
+  vertical-align: bottom;
+
+}
+
+
+/* this is a _demo_ container. remember the importance of relative and absolute positioning */
+.tooltip-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+
+}
+
+/* styling of the tooltip display */
+#tooltip-text {
+  position: absolute;
+  display:block;
+  top: +40px;
+  left:-30px;
+  z-index: 1;
+  font-size:12px;
+  background: #f7db7f;
+  text-align:left;
+  width:max-content;
+  padding: 8px;
+  color: black;
+  border-radius: 2px;
+  animation: fadeIn 0.4s;
+}
+
+.forms{
+  display:block;
+  background-color: white;
+  border-radius: 4px;
+  padding: 8px;
+  width: 50%;
+
+}
+
+.forms * {
+ margin: 1px;
+ padding:1px;
+ 
+}
+
+
+
+/*ici c'est pas sur si label ca va pas déranger avec d'autres pages que pagesmodicfications*/
+label{
+  display:block;
+}
+
+
+@keyframes fadeIn {
+from {
+ opacity: 0;
+}
+to {
+ opacity: 1;
+}
+}

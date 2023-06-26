@@ -13,20 +13,22 @@ niveauAdd = document.getElementById("niveau_form")
 themeAdd = document.getElementById("theme_form")
 elevePDFAdd = document.getElementById("elevePDF_form")
 laboPDFAdd = document.getElementById("laboPDF_form")
-responsePDFAdd = document.getElementById("responsePDF_form")
+reponsePDFAdd = document.getElementById("reponsePDF_form")
 chemToSelectAdd = document.getElementById("chemForm")
 
-buttonSubmit = document.getElementById("buttonSubmit")
+showModify = document.getElementById("modifyTP")
 
+buttonSubmit = document.getElementById("buttonSubmit")
+buttonModify= document.getElementById("btnModifyTP")
+buttonSectionModify = document.getElementById("sectionButtonModifyTP")
 //ici c'est la référence HTML de toutes les parties du formulaire "modifier/supprimer un TP"
-titre = document.getElementById("titreTP_formMODIFY")
-niveau = document.getElementById("niveau_formMODIFY")
-titre.setAttribute('required','ce cham');
-niveauActuel = document.getElementById("niveauActuel_formMODIFY")
-theme = document.getElementById("theme_formMODIFY")
-elevePDF = document.getElementById("elevePDF_formMODIFY")
-laboPDF = document.getElementById("laboPDF_formMODIFY")
-responsePDF = document.getElementById("responsePDF_formMODIFY")
+titreModify = document.getElementById("titreTP_formMODIFY")
+niveauModify = document.getElementById("niveau_formMODIFY")
+niveauActuelModify = document.getElementById("niveauActuel_formMODIFY")
+themeModify = document.getElementById("theme_formMODIFY")
+elevePDFModify = document.getElementById("elevePDF_formMODIFY")
+laboPDFModify = document.getElementById("laboPDF_formMODIFY")
+reponsePDFModify = document.getElementById("reponsePDF_formMODIFY")
 //le idTP ne fait pas partie du formulaire. c'est un paragraphe invisible
 // (bon, c'est pas spécialement secret, juste pas intéressant pour l'utilisateur )
 //donc un paragraphe invisible dans lequel on met la valeur de l'id qui a été généré automatiquement lors de la méthode POST
@@ -46,8 +48,7 @@ window.onload = async function() {
     makeDropdown(dataProducts,chemToSelectAdd);
     //on fait le menu déroulant des produits chimiques dans la partie MODIFy
     // à faire
-    //on fait le menu déroulant (par nom) des TPs disponibles
-    makeListOfTp(dataTP, tpNameSelect)
+    //on fait le menu déroulant (par nom) des TPs disponibles. Fianlement j'ai décidé d'enlever ça et de le mettre dépendant d'un bouton
     };
 
 //permet de retourner un tableau lorsque l'on sélectionne plusieurs valeurs.
@@ -63,21 +64,45 @@ function addMultipleSelection(menuDropdown){
     return selected
 }
 
+buttonSectionModify.addEventListener('click',function(e){
+    e.preventDefault()
+    console.log("hello")
+
+    if(showModify.style.visibility == "visible"){
+        showModify.style.visibility="collapse"
+    }
+    else if(showModify.style.visibility=="collapse"){
+        showModify.style.visibility="visible"
+    }
+    makeDropdown(dataTP, tpNameSelect)
+
+
+});
+
 //donc quand on clique sur "enregistrer" dans la partie ajouter un TP 
 buttonSubmit.addEventListener('click', function(e) {
     e.preventDefault(); 
+    console.log(elevePDFAdd)
     const formData = {
       //id: generateId(dataTP) <- pas besoin de ça car l'id est généré automatiquement
       name: titreAdd.value,
       chemP: addMultipleSelection(chemAdd),
       level: addMultipleSelection(niveauAdd),
-      theme: themeAdd.value
-      //à faire, ajouter condition pour que tout doit etre remplie
+      theme: themeAdd.value,
+      tpEleve: elevePDFAdd.value,
+      tpLabo:laboPDFAdd.value,
+      tpReponse: reponsePDFAdd.value
 
-      //à faire, gérer les pdfs de google drive chemecole
     };
+
+       //à faire, ajouter condition pour que tout doit etre remplie 
+      //en faite, on va forcer seulement un des deux entre tp eleve et tp laborantin
+    
+      //à faire, gérer les pdfs de google drive chemecole
+  
     //ici on convertit les réponses par l'utilisateur dans le formulaire ADD en format JSON
     const tpJSON = JSON.stringify(formData, null, 2);
+    console.log(tpJSON)
     fetch(apiUrl, {
         method: 'POST',
         //les headers permettent de rajouter des informations sur le message (qu'on poste dans ce cas-là)
@@ -91,6 +116,7 @@ buttonSubmit.addEventListener('click', function(e) {
     .then(response => {
         if (response.ok) {
         console.log('Données ajoutées avec succès !');
+        //window.location.reload()
         } else {
         console.error('Une erreur s\'est produite lors de l\'ajout des données.');
         }
@@ -99,7 +125,7 @@ buttonSubmit.addEventListener('click', function(e) {
         console.error('Une erreur s\'est produite lors de l\'envoi de la requête.', error);
     });
 
-    //window.location.reload()
+    
 });
 
 //const tpDELJSON = JSON.stringify(formData, null, 2);
@@ -117,16 +143,15 @@ btnDeleteTP.addEventListener('click', function(e) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: tpJSON
-
-      
-      
+      //body: tpJSON
+    
     })
     
     .then(response => {
     console.log(response)
       if (response.ok) {
         console.log('TP supprimé avec succès !');
+        window.location.reload()
         // Effectuer toute autre action nécessaire après la suppression du TP
       } else {
         console.error('Une erreur s\'est produite lors de la suppression du TP.');
@@ -171,7 +196,9 @@ function createFilledForm(tableau,choosenTP){
 //bon ça je sais pas pourquoi je l'ai pas sur loadJSON mais si ça marche, on ne va pas se plaindre
 //ça permet de faire de le menu déroulant des noms de produits chimiques
 function makeDropdown(tableau,menu){
-    let option;   
+    let option;
+    //pour éviter les doublons quand on rappuie plusieurs fois sur menu déroulant de modifier un TP
+    menu.innerHTML=""   
     for (let i = 0; i < tableau.length; i++) {
       option = document.createElement('option');
       option.value = tableau[i].name;
@@ -182,8 +209,9 @@ function makeDropdown(tableau,menu){
 
    //et ça je sais pas pourquoi c'est async mais bon si ça marche, on ne va pas se plaindre
    //ça permet de faire le menu déroulant des noms de tps
-async function makeListOfTp(tableau,whereToMakeList){
+/*async function makeListOfTp(tableau,whereToMakeList){
     let option;   
+    whereToMakeList.innerHTML=""   
     for (let i = 0; i < tableau.length; i++) { 
       option = document.createElement('option');
       option.value = tableau[i].name;
@@ -191,5 +219,5 @@ async function makeListOfTp(tableau,whereToMakeList){
       whereToMakeList.appendChild(option);
     }
    }
-   
+  */ 
    

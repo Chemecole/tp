@@ -145,6 +145,29 @@ h1{
 }
 
 
+#containerTP{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-gap: 10px;
+  border-color:red;
+  border-width: 5px;
+}
+
+#addTP{
+  grid-column: 1;
+  grid-row:2;
+  background-color: white;
+ 
+}
+
+#modifyTP{
+  grid-column: 2;
+  grid-row:2;
+
+  background-color:white;
+  
+
+}
 
 #container2{
   display:grid;
@@ -155,6 +178,20 @@ h1{
   height: calc(100vh - 10px);
 }
 
+.tableauModify{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  
+  grid-gap: 10px;
+ 
+}
+
+.leftColumn{
+ grid-column: 1
+}
+.rightColumn{
+grid-column: 2
+}
 header{
   grid-column: 1 /span  2;
   grid-row: 1;
@@ -232,6 +269,14 @@ header{
   width: 50%;
 
 }
+
+.forms * {
+ margin: 1px;
+ padding:1px;
+ 
+}
+
+
 
 /*ici c'est pas sur si label ca va pas déranger avec d'autres pages que pagesmodicfications*/
 label{

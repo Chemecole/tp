@@ -1,8 +1,6 @@
 
 //url pour la base de donnée qu'on utilise, en ligne
 const apiUrl = 'https://chemecole.onrender.com/tp';
-const localUrl = "./chemistry.json"
-
 
 //bon ça c'est la référence HTML de toutes les parties du formulaire "ajouter un TP"
 formAdd = document.getElementById("formTP")
@@ -169,6 +167,17 @@ tpNameSelect.addEventListener("change", (event) => {
   });
 
 
+  //In the index.html of the protected content, we only need to check for the not-valid-after parameter:
+  //from  https://www.agalera.eu/github-pages-password/
+  let paramString = window.location.search.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  let nva = parseInt(queryString.get("nva"))
+  let now = new Date().getTime()
+  if (Number.isNaN(nva) || now > nva) {
+      console.log("not-valid-after invalid, going to redirect to /")
+      window.location = "/"
+  }
+  
 
    
 //cette fonction, permet de d'auto-remplir, une fois qu'on a choisit le nom du TP qu'on veut modifier, les données actuelles du TP

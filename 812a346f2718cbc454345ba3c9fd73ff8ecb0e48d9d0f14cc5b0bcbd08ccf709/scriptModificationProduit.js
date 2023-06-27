@@ -10,6 +10,7 @@ nameAdd = document.getElementById("name_addProduct")
 imgAdd = document.getElementById("img_addProduct")
 locAdd = document.getElementById("loc_addProduct")
 quantityAdd = document.getElementById("quantity_addProduct")
+presentationAdd = document.getElementById("presentation_addProduct")
 
 nameModify = document.getElementById("name_modifyProduct")
 //imgModify = document.getElementById("loc_modifyProduct")
@@ -77,9 +78,10 @@ buttonSubmit.addEventListener('click', function(e) {
     const formData = {
       //id: generateId(dataTP) <- pas besoin de ça car l'id est généré automatiquement
       name: nameAdd.value ,
-      //strpic: addMultipleSelection(niveauAdd),
+      strpic: imgAdd.value,
       location: locAdd.value,
-      quantity: quantityAdd.value
+      quantity: quantityAdd.value,
+      presentation: presentationAdd.value
       //docLab, docPoint
       //à faire, ajouter condition pour que tout doit etre remplie
 

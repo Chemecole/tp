@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    <title>Recherche par produits</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="container2">
+        <header>
+            <a href="homePage.html"> <img src="source\images\homePageButton.png" /></a>
+            <h1>Divers</h1>
+        </header>
+
+        <p> Note aux programmeurs - depuis visual studio code/github, ne pas faire de commit avant de souvegarder d'abord le fichier JSON. 
+            sinon, tous les TPs et produits chimiques qui ont été introduits sur le site depuis la dernière sauvegarde seront effacé.
+       En effet, à ma connaissance, il n'est pas possible d'actualiser automatiquement le fichier JSON sur github.
+       Pour le faire manuellement ; tout simplement en souvegardant les données avec le bouton suivant, et, dans le code,
+       en remplaçant l'ancien fichier chemistry.json avec celui-ci.
+        </p>
+        <button onclick="getDataToSaveProd()"> Enregistrer JSON - produits </button>
+        <button onclick="getDataToSaveTP()"> Enregistrer JSON - tps </button>
+        <button onclick="getDataToSaveProd()"> Enregistrer JSON - cools </button>
+        <img src= "https://drive.google.com/uc?export=view&id=1GVCC_EvuyN_R1WegpVUFg5uBqwaNC4mm"/>
+
+        <p> programmes recommandés</p>
+        <p> guide de laborantin</p>
+        <p> dictionnaire de produits chimiques 
+            présentation de produits chimiques
+            le japon guide et vidéo youtube
+            avec de la chance vous pouvez me contacter à chemecole@gmail.com
+            (bon il est possible que je ne vois le message plusieurs années plus tard)
+        </p>
+        
+        <script src="loadJSON.js" defer async></script>
+
+        <script src="diverse.js" defer async></script>
+</body>
+
+</html>

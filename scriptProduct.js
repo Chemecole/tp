@@ -155,7 +155,7 @@ async function actualizeProducts(arrayUserInp){
     while(i2 < dataProducts.length && found === false){
       if(dataProducts[i2].name == arrayUserInp[i]){
       found=true
-      selectedProductsSection.innerHTML+='<div class = "oneSelectedProduct"><button class="btn-remove" onclick="btnClickedRemove(this)"></button><img src="source/images/chemicals/' + dataProducts[i2].strpic + ' " width="200px" ><h5>' + dataProducts[i2].name + '</h5><p>Emplacement : ' + dataProducts[i2].location + '</br> Quantité : '+ dataProducts[i2].quantity + '</p> </div>'
+      selectedProductsSection.innerHTML+='<div class = "oneSelectedProduct"><button class="btn-remove" onclick="btnClickedRemove(this)"></button><a href = "'+ dataProducts[i2].presentation +'"><img src="https://drive.google.com/uc?export=view&id=' + dataProducts[i2].strpic + ' " width="200px" ></a><h5>' + dataProducts[i2].name + '</h5><p>Emplacement : ' + dataProducts[i2].location + '</br> Quantité : '+ dataProducts[i2].quantity + '</p> </div>'
     }
     i2++
   }

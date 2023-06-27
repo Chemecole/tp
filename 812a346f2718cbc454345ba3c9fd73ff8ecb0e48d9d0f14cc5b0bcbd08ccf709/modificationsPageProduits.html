@@ -12,7 +12,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../style.css" />
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
-    <script defer src="../loadJSON.js"></script>
+    <script defer src="loadJSON.js"></script>
     
    
   </head>
@@ -33,14 +33,13 @@
             <label for="quantity_addProduct">Quantité (pas la peine d'être précis; juste mettre zéro si y'en a plus) :</label>
             <input type="text" id="quantity_addProduct" value ="" required>
 
-            <label for="img_addProduct">Image du produit:</label>
-            <input type="file" id="img_addProduct" name="upload" accept="application/img" />
+            <label for="img_addProduct">Image du produit: vous pouvez ne pas emttre d'image, mais ça fera moche, aussi, juste l'id, c'est à dire entre le d/ et /view</label>
+            <input type="url" id="img_addProduct"/>
 
-            <label for="laboPDF_formProduit">Présentation labo:</label>
-            <input type="file" id="laboPDF_formProduit" name="upload" accept="application/pdf" />
+            <label for="presentation_addProduct">Présentation</label>
+            <input type="url" id="presentation_addProduct"/>
 
-            <label for="reponsePDF_formProduit"> Présentation élève</label>
-            <input type="file" id="reponsePDF_formProduit" name="upload" accept="application/pdf" />
+        
 
             <!-- Ajoutez ici les autres champs pour les valeurs du fichier JSON -->
             

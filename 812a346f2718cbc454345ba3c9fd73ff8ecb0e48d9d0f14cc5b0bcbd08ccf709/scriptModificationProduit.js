@@ -34,6 +34,18 @@ productNameSelect= document.getElementById("ProductNameSelect")
 
 
 
+  //In the index.html of the protected content, we only need to check for the not-valid-after parameter:
+  //from  https://www.agalera.eu/github-pages-password/
+  let paramString = window.location.search.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  let nva = parseInt(queryString.get("nva"))
+  let now = new Date().getTime()
+  if (Number.isNaN(nva) || now > nva) {
+      console.log("not-valid-after invalid, going to redirect to /")
+      window.location = "/"
+  }
+  
+
 
 window.onload = async function() {
     //on récupére les données 

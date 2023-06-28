@@ -1,6 +1,5 @@
 #chemistryDropdown{
   display:block;
-  
 }
 
 #input{
@@ -14,7 +13,6 @@
   width: 100px;
   position: relative;
   display: block;
- 
   margin: auto;
 }
 
@@ -49,8 +47,6 @@
   margin-right: -20px;
   float: right;
   margin-top: -18px;
-  
-
 }
 
 .oneSelectedProduct button:hover{
@@ -90,16 +86,6 @@ header{
 }
 
 
-header img{
-  width:100px;
-
-  margin:0px;
-}
-
-header h1{
-  margin-left:20%;
-  padding-top:20px;
-}
 section{
   background-color:white;
   border-radius:5px;
@@ -108,12 +94,10 @@ section{
 
 }
 
-
-h2{
-  text-align:center;
-}
-
 h1{
+  text-align: center;
+}
+h2{
   text-align:center;
 }
 
@@ -125,26 +109,138 @@ h1{
 }
 
 #introExplications{
-  grid-column: 1 /span  2;
+  grid-column: 1 /span 2;
   grid-row: 1;
   
 }
+
+@media (min-width: 300px) {
+/*======================================================*/
+  /* POUR PETITS ECRANS !!*/
+
+  /*General*/
+  header{
+    grid-column: 1 /span  2;
+
+    grid-row: 1;
+  
+  }
+
+  header h1{
+    padding:0px;
+    margin:0px;
+    font-size: 20px;
+    text-align:center;
+  }
+
+  header img{
+    visibility: visible;
+    width: 50px;
+    margin:0px;
+  }
+  /*pour home Page*/ 
+  
 #rechercheSection{
-  grid-column: 1/2;
-  grid-row: 2/ 5;
+  grid-column:  1 /span 2;
+  grid-row:2;
+  
 }
 
 #modificationsExplications{
-  grid-column: 2/2;
-  grid-row: 2 / 5;
+  grid-column:  1 /span 2;
+  grid-row: 3;
 }
 
 
 #diversExplications{
-  grid-column: 2/2;
-  grid-row: 5 / 5;
+  grid-column:  1 /span 2;
+  grid-row: 4;
 }
 
+/*POUR RECHERCHE PAR PRODUITS*/
+
+.section1{
+  grid-column: 1 /span 2 ;
+  grid-row:3;
+ 
+}
+
+.section2{
+  grid-column:1 /span 2 ;
+  grid-row:4;
+}
+
+.section3{
+  grid-column: 1 /span 2;
+  grid-row:5;
+}
+
+}
+
+
+@media (min-width: 800px) {
+/*======================================================*/
+  /* POUR GRANDS ECRANS !!*/
+
+  /*General*/
+  header{
+    grid-column: 1 /span  2;
+    grid-row: 1;
+  
+  }
+  
+header img{
+  width:100px;
+  visibility: visible;
+  margin:0px;
+}
+
+header h1{
+  margin-left:20%;
+  padding-top:20px;
+  font-size:50px;
+  text-align:center;
+}
+
+  /*pour home Page*/ 
+  #rechercheSection{
+    grid-column: 1/2;
+    grid-row: 2/ 5;
+  }
+  
+  #modificationsExplications{
+    grid-column: 2/2;
+    grid-row: 2 / 5;
+  }
+  
+  
+  #diversExplications{
+    grid-column: 2/2;
+    grid-row: 5 / 5;
+  }
+
+  /*POUR RECHERCHE PAR PRODUITS*/
+  .section1{
+    grid-column: 1;
+    grid-row:3;
+   
+  }
+  
+  .section2{
+    grid-column: 2 ;
+    grid-row:3;
+  }
+  
+  .section3{
+    grid-column: 2;
+    grid-row:4;
+  }
+  
+  
+  
+
+  }
+  
 
 #containerTP{
   display:grid;
@@ -193,34 +289,13 @@ h1{
 .rightColumn{
 grid-column: 2
 }
-header{
-  grid-column: 1 /span  2;
-  grid-row: 1;
 
-}
 
 #chemistryDropdown{
   grid-column: 1 ;
   grid-row:2;
 
 }
-
-.section1{
-  grid-column: 1 ;
-  grid-row:3;
- 
-}
-
-.section2{
-  grid-column: 2 ;
-  grid-row:3;
-}
-
-.section3{
-  grid-column: 2;
-  grid-row:4;
-}
-
 
 
 /* RECHERCHE PAR PRODUIT */

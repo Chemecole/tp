@@ -87,6 +87,17 @@ buttonSubmit.addEventListener('click', function(e) {
 
       //à faire, gérer les pdfs de google drive chemecole
     };
+
+    
+    for (let i = 0; i < dataProducts.length; i++) {
+      if(nameAdd.value == dataProducts[i].name){
+        alert("un produit sous ce nom existe déjà. Si vous voulez le modifier, la section suivante le permet !")
+        return false;
+      }
+      
+    }
+   
+
     //ici on convertit les réponses par l'utilisateur dans le formulaire ADD en format JSON
     const chemJSON = JSON.stringify(formData, null, 2);
     fetch(apiUrl, {
